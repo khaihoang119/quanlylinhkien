@@ -37,11 +37,11 @@
 
         <nav id="navbar" class="navbar">
             <ul>
-                <li><a class="nav-link scrollto active" href="#hero">Trang chủ</a></li>
-                <li><a class="nav-link scrollto" href="#about">Về Chúng tôi</a></li>
+                <li><a class="nav-link scrollto active" href="index.php?act=trangchu">Trang chủ</a></li>
+                <li><a class="nav-link scrollto" href="index.php?act=product">Về Chúng tôi</a></li>
                 <li><a class="nav-link scrollto" href="#services">Dịch vụ</a></li>
                 <li><a class="nav-link scrollto" href="./product.php">Sản Phẩm</a></li>
-                <li><a class="nav-link   scrollto" href="#portfolio">Sản phẩm</a></li>
+                <li><a class="nav-link   scrollto" href="index.php?act=product">Sản phẩm</a></li>
                 <li><a class="nav-link scrollto" href="#team">Team</a></li>
                 <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
                     <ul>
