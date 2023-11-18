@@ -37,15 +37,14 @@
 
         <nav id="navbar" class="navbar">
             <ul>
-                <li><a class="nav-link scrollto active" href="index.php?act=trangchu">Trang chủ</a></li>
+                <li><a class="nav-link scrollto" href="index.php?">Trang chủ</a></li>
                 <li><a class="nav-link scrollto" href="index.php?act=product">Về Chúng tôi</a></li>
                 <li><a class="nav-link scrollto" href="#services">Dịch vụ</a></li>
-                <li><a class="nav-link scrollto" href="./product.php">Sản Phẩm</a></li>
-                <li><a class="nav-link   scrollto" href="index.php?act=product">Sản phẩm</a></li>
+                <li><a class="nav-link scrollto" href="index.php?act=product">Sản phẩm</a></li>
                 <li><a class="nav-link scrollto" href="#team">Team</a></li>
                 <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
                     <ul>
-                        <li><a href="#">Drop Down 1</a></li>
+                        <li><a href="index.php?act=product-detail">chi tiết sản phẩm</a></li>
                         <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
                             <ul>
                                 <li><a href="#">Deep Drop Down 1</a></li>

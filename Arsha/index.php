@@ -1,21 +1,22 @@
 <?php
     session_start();
     include './view/header.php';
-
-    if((!isset($_GET['act'])) && $_GET['act'] !=""){
-        $act =$_GET['act'];
+    if((isset($_GET['act'])) && ($_GET['act'] !="")){
+        $act = $_GET['act'];
         switch ($act){
-            case 'trangchu':
-            include './view/index.php';
-                break;
             case 'product':
-            include './view/product.php';
+            include "view/product.php";
                 break;
             case 'product-detail':
-            include ' ./view/product-detail.php';
-            break;
+            include "view/product-detail.php";
+                break;
+            default:
+            include "view/home.php";
+                break;
         }
-    };
+    }else{
+        include "view/home.php";
+    }
 ?>
 <!doctype html>
 <html lang="en">
@@ -24,7 +25,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>header</title>
+    <title>page</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
     <!-- Favicons -->

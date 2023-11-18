@@ -40,9 +40,7 @@
 <body>
 
   <!-- ======= Header ======= -->
-  <?php
-  include 'header.php';
-  ?>
+
   <!-- End Header -->
 
   <main id="main">
@@ -52,10 +50,10 @@
       <div class="container">
 
         <ol>
-          <li><a href="index.php">Home</a></li>
-          <li>Portfolio Details</li>
+          <li><a href="home.php">Home</a></li>
+          <li>Chi tiết sản phẩm</li>
         </ol>
-        <h2>Portfolio Details</h2>
+        <h2>Chi tiết sản phẩm</h2>
 
       </div>
     </section><!-- End Breadcrumbs -->

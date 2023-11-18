@@ -40,9 +40,9 @@
 <body>
 
   <!-- ======= Header ======= -->
-    <?php
-        include 'header.php';
-    ?>
+<!--    --><?php
+//        include 'header.php';
+//    ?>
  <!-- End Header -->
 
   <!-- ======= Hero Section ======= -->
