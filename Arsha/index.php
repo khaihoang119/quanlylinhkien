@@ -46,6 +46,7 @@
 
     <!-- Template Main CSS File -->
     <link href="./assets/css/style.css" rel="stylesheet">
+    <link href="./assets/css/style2.css" rel="stylesheet">
 </head>
 <body>
 <script src="./assets/vendor/aos/aos.js"></script>

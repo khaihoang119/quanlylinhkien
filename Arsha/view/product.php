@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Inner Page - Arsha Bootstrap Template</title>
+  <title>Trang sản phẩm</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -48,9 +48,9 @@
                         <img src="./assets/img/products/laptop01.webp" class="card-img-top" alt="...">
                         <div class="card-body">
                             <p class="card-text fw-bold">Laptop gaming Acer Predator Helios 300 PH315 55 76KG</p>
+                            <div></div>
                             <div class="card " style="width: 10rem;">
-
-                                <div class="card-body">
+                                <div class="card-body  font">
                                     <p class="card-text">I9-13980HX</p>
                                     <p class="card-text">RTX 4090</p>
                                     <p class="card-text">32GB</p>
