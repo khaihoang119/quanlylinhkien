@@ -1,16 +1,17 @@
-<!-- ======= Footer ======= -->
+
 <footer id="footer">
 
     <div class="footer-newsletter">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-6">
-                    <h4>Join Our Newsletter</h4>
-                    <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
+                    <h4>Đăng Kí Hội Viên</h4>
+                    <p>Đăng kí thành viên để được những ưu đãi mới nhất</p>
                     <form action="" method="post">
-                        <input type="email" name="email"><input type="submit" value="Subscribe">
+                        <input type="email" name="email"><input type="submit" value="Đăng Kí">
                     </form>
                 </div>
+
             </div>
         </div>
     </div>
@@ -31,30 +32,28 @@
                 </div>
 
                 <div class="col-lg-3 col-md-6 footer-links">
-                    <h4>Useful Links</h4>
+                    <h4>Liên Kết Hữu Ích</h4>
                     <ul>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Trang Chủ</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Về Chúng Tôi</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Các Dịch Vụ</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Điều Khoản</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Chính Sách Bảo Mật</a></li>
                     </ul>
                 </div>
 
                 <div class="col-lg-3 col-md-6 footer-links">
-                    <h4>Our Services</h4>
+                    <h4>Dịch Vụ Của Chúng Tôi</h4>
                     <ul>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Build PC </a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Tư Vấn Sản Phẩm</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Vệ Sinh Linh Kiện</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Sửa Chữa</a></li>
                     </ul>
                 </div>
 
                 <div class="col-lg-3 col-md-6 footer-links">
-                    <h4>Our Social Networks</h4>
-                    <p>Cras fermentum odio eu feugiat lide par naso tierra videa magna derita valies</p>
+                    <h4>Kết Nối Với Chúng Tôi</h4>
                     <div class="social-links mt-3">
                         <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
                         <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
@@ -70,7 +69,7 @@
 
     <div class="container footer-bottom clearfix">
         <div class="copyright">
-            &copy; Copyright <strong><span>Arsha</span></strong>. All Rights Reserved
+            &copy; Copyright <strong><span>GearSetup.vn</span></strong>. All Rights Reserved
         </div>
         <div class="credits">
             <!-- All the links in the footer should remain intact. -->
@@ -80,4 +79,4 @@
             Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
         </div>
     </div>
-</footer><!-- End Footer -->
+</footer>
