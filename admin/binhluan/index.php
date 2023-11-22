@@ -39,32 +39,26 @@
                             <table id="" class="table table-striped table-bordered">
                                 <thead>
                                 <tr>
-                                    <th></th>
                                     <th>ID</th>
-                                    <th>Mã tài khoản</th>
-                                    <th>Mã sản phẩm</th>
+                                    <th>Tên</th>
+                                    <th>Sản Phẩm</th>
                                     <th>Mô tả</th>
                                     <th>Ngày Bình Luận</th>
                                     <th></th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <?php
-                                foreach ($listbinhluan as $binhluan) {
-                                    extract($binhluan);
-                                    $xoabl = "index.php?act=xoabl&id=" . $commentID;
-                                    ?>
-                                    <tr>
-                                        <td><input type="checkbox" name="" id=""></td>
-                                        <td><?= $commentID ?></td>
-                                        <td><?= $userID ?></td>
-                                        <td><?= $productID ?></td>
-                                        <td><?= $content ?></td>
-                                        <td><?= $commentDate ?></td>
-                                        <td><a class="btn btn-outline-danger" href="<?= $xoabl ?>">Xóa</a></td>
+                                <tr>
+                                    <th></th>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td><a class="btn btn-outline-info" href="">Sửa</a></td>
+                                    <td><a class="btn btn-outline-danger" href="">Xóa</a></td>
 
-                                    </tr>
-                                <?php } ?>
+                                </tr>
+
                                 </tbody>
                             </table>
                         </div>
