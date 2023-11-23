@@ -21,7 +21,7 @@
         <nav id="navbar" class="navbar">
             <ul>
                 <li><a class="nav-link scrollto" href="index.php?">Trang chủ</a></li>
-                <li><a class="nav-link scrollto" href="index.php?act=product">Về Chúng tôi</a></li>
+                <li><a class="nav-link scrollto" href="index.php?act=about-us">Về Chúng tôi</a></li>
                 <li><a class="nav-link scrollto" href="#services">Dịch vụ</a></li>
                 <li><a class="nav-link scrollto" href="index.php?act=product">Sản phẩm</a></li>
                 <li><a class="nav-link scrollto" href="#team">Team</a></li>

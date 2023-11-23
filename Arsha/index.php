@@ -8,8 +8,11 @@
             case 'product':
             include "view/product.php";
                 break;
-            case 'product-detail':
+            case 'product-detail';
             include "view/product-detail.php";
+                break;
+            case 'about-us':
+                include "view/about-us.php";
                 break;
             default:
             include "view/home.php";
