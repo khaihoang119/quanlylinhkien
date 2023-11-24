@@ -30,32 +30,37 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
-                    <form class="form-horizontal" action="loaisanpham-them-xuly.php" method="POST">
+
+                    <form class="form-horizontal" action="index.php?act=adddm" onsubmit="return validateForm();"
+                          method="POST">
                         <div class="card-body">
                             <h4 class="card-title">Thêm loại sản phẩm</h4>
                             <div class="form-group row">
-                                <label for="ten" class="col-sm-3 text-end control-label col-form-label">Tên</label>
+                                <label for="ten" class="col-sm-3 text-end control-label col-form-label">Mã Loại</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="ten"
-                                           placeholder="Nhập tên loại sản phẩm..." name="ten" required>
+                                    <input type="text" class="form-control" id="maloai"
+                                           placeholder="Nhập tên loại sản phẩm..." name="maloai" required>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-sm-3 text-end control-label col-form-label">Trạng thái</label>
-                                <div class="col-md-9">
-                                    <select class="select2 form-select shadow-none" style="width: 100%; height:36px;"
-                                            name="trangthai">
-                                        <option value="1">Hiển thị</option>
-                                        <option value="0">Ẩn</option>
-                                    </select>
+                                <label for="ten" class="col-sm-3 text-end control-label col-form-label">Tên</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" id="tenloai"
+                                           placeholder="Nhập tên loại sản phẩm..." name="tenloai" required>
                                 </div>
                             </div>
                         </div>
                         <div class="border-top">
                             <div class="card-body">
-                                <button type="submit" class="btn btn-primary" name="them">Thêm</button>
+                                <input type="submit" class="btn btn-primary" name="themmoi" value="Thêm Mới"></input>
+                                <input type="reset" class="btn btn-primary" value="Nhập Lại"></input>
                             </div>
                         </div>
+                        <?php
+                        if (isset($thongbao) && ($thongbao != "")) {
+                            echo $thongbao;
+                        }
+                        ?>
                     </form>
                 </div>
 
@@ -78,3 +83,14 @@
     <!-- End Container fluid  -->
     <!-- ============================================================== -->
     <!-- ============================================================== -->
+    <script>
+        function validateForm() {
+            let x = document.getElementById("tenloai").value;
+            let text;
+            if (x == "") {
+                text = "Tên loại không được để trống";
+                document.getElementById("tenloai").innerHTML = text;
+                return false;
+            }
+        }
+    </script>

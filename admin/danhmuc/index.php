@@ -1,3 +1,4 @@
+
 <!-- Page wrapper  -->
 <!-- ============================================================== -->
 <div class="page-wrapper">
@@ -41,19 +42,25 @@
                                 <tr>
                                     <th>ID</th>
                                     <th>Tên</th>
-                                    <th>Trạng thái</th>
-                                    <th></th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
-                                    <th></th>
-                                    <td></td>
-                                    <td></td>
-                                    <td><a class="btn btn-outline-info" href="">Sửa</a></td>
-                                    <td><a class="btn btn-outline-danger" href="">Xóa</a></td>
+                                <?php
+                                foreach ($listdanhmuc as $danhmuc) {
+                                    extract($danhmuc);
+                                    $suadm = "index.php?act=suadm&id=" . $categoryID;
+                                    $xoadm = "index.php?act=xoadm&id=" . $categoryID;
+                                    ?>
+                                    <tr>
+                                        <th><?= $categoryID ?></th>
+                                        <td><?= $name ?></td>
+                                        <td><a class="btn btn-outline-info" href="<?= $suadm ?>">Sửa</a></td>
+                                        <td><a class="btn btn-outline-danger" href="<?= $xoadm ?>"
+                                               onclick="return confirm('Bạn có chắc chắn muốn xóa?')">Xóa</a></td>
 
-                                </tr>
+                                    </tr>
+                                <?php } ?>
+
 
 
                                 </tbody>
@@ -79,3 +86,14 @@
     <!-- End Container fluid  -->
     <!-- ============================================================== -->
     <!-- ============================================================== -->
+    <script>
+        function validateForm() {
+            let x = document.getElementById("tloai").value;
+            let text;
+            if (x == "") {
+                text = "Tên loại không được để trống";
+                document.getElementById("tenloai").innerHTML = text;
+                return false;
+            }
+        }
+    </script>

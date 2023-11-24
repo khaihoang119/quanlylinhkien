@@ -39,34 +39,45 @@
                             <table id="" class="table table-striped table-bordered">
                                 <thead>
                                 <tr>
+                                    <th></th>
                                     <th>ID</th>
                                     <th>User</th>
                                     <th>Email</th>
                                     <th>Password</th>
+                                    <th>PhoneNumber</th>
                                     <th>LastName</th>
                                     <th>FirstName</th>
-                                    <th>PhoneNumber</th>
+                                    <th>Address</th>
                                     <th>Role</th>
-                                    <th>Status</th>
                                     <th></th>
+
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
-                                    <th></th>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td><a class="btn btn-outline-info" href="">Sửa</a></td>
-                                    <td><a class="btn btn-outline-danger" href="">Xóa</a></td>
+                                <?php
+                                foreach ($listtaikhoan as $taikhoan) {
+                                    extract($taikhoan);
+                                    $suatk = "index.php?act=suatk&id=" . $userID;
+                                    $xoatk = "index.php?act=xoatk&id=" . $userID;
+                                    ?>
+                                    <tr>
+                                        <th><input type="checkbox" name="" id=""></th>
+                                        <td><?= $userID ?></td>
+                                        <td><?= $username ?></td>
+                                        <td><<?= $email ?></td>
+                                        <td><?= $password ?></td>
+                                        <td><?= $lastName ?></td>
+                                        <td><?= $firstName ?></td>
+                                        <td><?= $phoneNumber ?></td>
+                                        <td><?= $address ?></td>
+                                        <td><?= ($role == 0) ? "Khách hàng" : "Admin" ?></td>
+                                        <td></td>
+                                        <td><a class="btn btn-outline-info" href="<?= $suatk ?>">Sửa</a></td>
+                                        <td><a class="btn btn-outline-danger" href="<?= $xoatk ?>"
+                                               onclick="return confirm('Bạn có chắc chắn muốn xóa?')">Xóa</a></td>
 
-                                </tr>
-
+                                    </tr>
+                                <?php } ?>
                                 </tbody>
                             </table>
                         </div>
