@@ -60,7 +60,6 @@ include 'view/footer.php';
 
 <script src="assets/client/vendor/aos/aos.js"></script>
 <script src="assets/client/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="assets/client/vendor/isotope-layout/isotope.pkgd.min.js"></script>
 <script src="assets/client/vendor/swiper/swiper-bundle.min.js"></script>
 <script src="assets/client/vendor/php-email-form/validate.js"></script>
 
