@@ -12,7 +12,7 @@
           </div>
         </div>
         <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
-          <img src="../assets/img/hero-img.png" class="img-fluid animated" alt="">
+          <img src="../assets/client/img/hero-img.png" class="img-fluid animated" alt="">
         </div>
       </div>
     </div>
@@ -32,23 +32,23 @@
           </div>
 
           <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-            <img src="../assets/img/clients/client-2.png" class="img-fluid" alt="">
+            <img src="../assets/client/img/clients/client-2.png" class="img-fluid" alt="">
           </div>
 
           <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-            <img src="../assets/img/clients/client-3.png" class="img-fluid" alt="">
+            <img src="../assets/client/img/clients/client-3.png" class="img-fluid" alt="">
           </div>
 
           <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-            <img src="../assets/img/clients/client-4.png" class="img-fluid" alt="">
+            <img src="../assets/client/img/clients/client-4.png" class="img-fluid" alt="">
           </div>
 
           <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-            <img src="../assets/img/clients/client-5.png" class="img-fluid" alt="">
+            <img src="../assets/client/img/clients/client-5.png" class="img-fluid" alt="">
           </div>
 
           <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-            <img src="../assets/img/clients/client-6.png" class="img-fluid" alt="">
+            <img src="../assets/client/img/clients/client-6.png" class="img-fluid" alt="">
           </div>
 
         </div>

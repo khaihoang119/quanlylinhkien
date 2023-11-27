@@ -43,7 +43,7 @@
                     <!--products-->
                     <div class="col-md-6 col-lg-4 col-xl-3 p-3">
                         <div class="card" style="width: 18rem;">
-                          <a href="index.php?act=product-detail"><img src="./assets/img/products/laptop01.webp" class="card-img-top" alt="..."></a>
+                          <a href="index.php?act=product-detail"><img src="./assets/client/img/products/laptop01.webp" class="card-img-top" alt="..."></a>
                             <div class="row">
                                 <div class="card-body ">
                                     <p class="card-text fw-bold "> <a href="index.php?act=product-detail" class="text-dark">Laptop gaming Acer Predator Helios 300 PH315 55
