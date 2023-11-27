@@ -45,6 +45,7 @@
   before time-mode was moved into a separate plugin.
   (patch by Paolo Valleri, pull request #1028)
 
+
 ## Flot 0.8.2 ##
 
 ### Changes ###
@@ -175,6 +176,7 @@
 
 - Fixed missing semicolons in the core library.
   (reported by Michal Zglinski)
+
 
 ## Flot 0.8.0 ##
 
@@ -413,6 +415,7 @@ The base and overlay canvas are now using the CSS classes "flot-base" and
 
 - Fixed recalculation of tickSize and tickDecimals on calls to setupGrid.
   (patch by thecountofzero, pull request #861, issues #860, #1000)
+
 
 ## Flot 0.7 ##
 

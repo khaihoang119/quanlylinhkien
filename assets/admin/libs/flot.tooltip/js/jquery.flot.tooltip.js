@@ -8,7 +8,7 @@
  * 
  * build on 2015-05-11
  * released under MIT License, 2012
-*/
+*/ 
 (function ($) {
     // plugin options, default values
     var defaultOptions = {
@@ -345,7 +345,7 @@
             p = item.series.percent;
         } else if (typeof (item.series.percents) !== 'undefined') {
             p = item.series.percents[item.dataIndex];
-        }
+        }        
         if (typeof p === 'number') {
             content = this.adjustValPrecision(percentPattern, content, p);
         }

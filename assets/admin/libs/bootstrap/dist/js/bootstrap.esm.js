@@ -322,7 +322,6 @@ var customEvents = {
     mouseleave: 'mouseout'
 };
 var nativeEvents = new Set(['click', 'dblclick', 'mouseup', 'mousedown', 'contextmenu', 'mousewheel', 'DOMMouseScroll', 'mouseover', 'mouseout', 'mousemove', 'selectstart', 'selectend', 'keydown', 'keypress', 'keyup', 'orientationchange', 'touchstart', 'touchmove', 'touchend', 'touchcancel', 'pointerdown', 'pointermove', 'pointerup', 'pointerleave', 'pointercancel', 'gesturestart', 'gesturechange', 'gestureend', 'focus', 'blur', 'change', 'reset', 'select', 'submit', 'focusin', 'focusout', 'load', 'unload', 'beforeunload', 'resize', 'move', 'DOMContentLoaded', 'readystatechange', 'error', 'abort', 'scroll']);
-
 /**
  * ------------------------------------------------------------------------
  * Private methods
@@ -3219,7 +3218,6 @@ var DefaultAllowlist = {
     u: [],
     ul: []
 };
-
 function sanitizeHtml(unsafeHtml, allowList, sanitizeFn) {
     var _ref;
 

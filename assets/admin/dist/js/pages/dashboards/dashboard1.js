@@ -102,6 +102,7 @@ $(function () {
     sparklineLogin();
 
 
+
     // This is for the chat messege on enter
     $(function () {
         $(document).on('keypress', "#textarea1", function (e) {
