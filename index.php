@@ -50,9 +50,6 @@ include 'view/footer.php';
     <link href="assets/client/vendor/aos/aos.css" rel="stylesheet">
     <link href="assets/client/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="assets/client/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-    <link href="assets/client/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-    <link href="assets/client/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-    <link href="assets/client/vendor/remixicon/remixicon.css" rel="stylesheet">
     <link href="assets/client/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
     <!-- Template Main CSS File -->
@@ -63,10 +60,8 @@ include 'view/footer.php';
 
 <script src="assets/client/vendor/aos/aos.js"></script>
 <script src="assets/client/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="assets/client/vendor/glightbox/js/glightbox.min.js"></script>
 <script src="assets/client/vendor/isotope-layout/isotope.pkgd.min.js"></script>
 <script src="assets/client/vendor/swiper/swiper-bundle.min.js"></script>
-<script src="assets/client/vendor/waypoints/noframework.waypoints.js"></script>
 <script src="assets/client/vendor/php-email-form/validate.js"></script>
 
 <!-- Template Main JS File -->
