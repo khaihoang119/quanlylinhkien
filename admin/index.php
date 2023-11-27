@@ -19,7 +19,7 @@ if (isset($_GET['act'])) {
                 $status = $_POST['trangthai'];
                 insert_danhmuc($tenloai, $status);
                 $thongbao = "Thêm thành công";
-                
+
             }
             include "danhmuc/add.php";
             break;
@@ -47,6 +47,8 @@ if (isset($_GET['act'])) {
             $listdanhmuc = loadall_danhmuc();
             include "danhmuc/index.php";
             break;
+
+
         case 'sanpham':
             if (isset($_POST['listok']) && ($_POST['listok'])) {
                 $kyw = $_POST['kyw'];
@@ -132,6 +134,8 @@ if (isset($_GET['act'])) {
             $listbinhluan = loadall_binhluan(0);
             include "binhluan/index.php";
             break;
+
+
         case 'dskh':
             $listtaikhoan = loadall_taikhoan();
             // $listtaikhoan = loadall_taikhoan("",0);
