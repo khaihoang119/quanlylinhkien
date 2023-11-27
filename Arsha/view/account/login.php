@@ -43,8 +43,8 @@
 						</span>
 					</div>
 
-					<div class="wrap-input100 validate-input" data-validate = "Password is required">
-						<input class="input100" type="password" name="pass" placeholder="Password">
+					<div class="wrap-input100 validate-input" data-validate = "Yêu cầu nhập mật khẩu">
+						<input class="input100" type="password" name="pass" placeholder="Mật Khẩu">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-lock" aria-hidden="true"></i>
@@ -65,9 +65,8 @@
                             Mật Khẩu?
 						</a>
 					</div>
-
-					<div class="text-center p-t-136">
-						<a class="txt2" href="#">
+					<div class="text-center p-t-12">
+						<a class="txt2" href="index.php?act=register">
 							Bạn chưa có tài khoản?
 							<i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
 						</a>
