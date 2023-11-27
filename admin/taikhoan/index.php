@@ -41,15 +41,13 @@
                                 <tr>
                                     <th></th>
                                     <th>ID</th>
-                                    <th>User</th>
+                                    <th>Tài Khoản</th>
                                     <th>Email</th>
-                                    <th>Password</th>
-                                    <th>PhoneNumber</th>
-                                    <th>LastName</th>
-                                    <th>FirstName</th>
-                                    <th>Address</th>
-                                    <th>Role</th>
-                                    <th></th>
+                                    <th>Mật Khẩu</th>
+                                    <th>Họ Tên</th>
+                                    <th>Số Điện Thoại</th>
+                                    <th>Chức Vụ</th>
+                                    <th>Trạng thái</th>
 
                                 </tr>
                                 </thead>
@@ -61,15 +59,13 @@
                                     $xoatk = "index.php?act=xoatk&id=" . $userID;
                                     ?>
                                     <tr>
-                                        <th><input type="checkbox" name="" id=""></th>
+                                        <td><input type="checkbox" name="" id=""></td>
                                         <td><?= $userID ?></td>
                                         <td><?= $username ?></td>
                                         <td><<?= $email ?></td>
                                         <td><?= $password ?></td>
-                                        <td><?= $lastName ?></td>
-                                        <td><?= $firstName ?></td>
+                                        <th><?= $fullName ?></th>
                                         <td><?= $phoneNumber ?></td>
-                                        <td><?= $address ?></td>
                                         <td><?= ($role == 0) ? "Khách hàng" : "Admin" ?></td>
                                         <td></td>
                                         <td><a class="btn btn-outline-info" href="<?= $suatk ?>">Sửa</a></td>

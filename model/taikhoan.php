@@ -13,9 +13,9 @@ function loadone_taikhoan($id)
     return $taikhoan;
 }
 
-function insert_taikhoan($email, $user, $pass, $address, $lastName, $firstName, $tel, $role)
+function insert_taikhoan($user, $email, $pass, $fullName, $tel, $role, $status)
 {
-    $sql = "insert into account(email,username,password,address,lastName,firstName,phoneNumber,role) values('$email','$user','$pass','$address','$lastName','$firstName','$role')";
+    $sql = "insert into account(username,email,password,fullName,phoneNumber,role,status) values('$user','$email','$pass','$fullName','$role','$status')";
     pdo_execute($sql);
 }
 
@@ -50,5 +50,4 @@ function delete_user($id)
     $sql = "delete from account where userID =" . $id;
     pdo_execute($sql);
 }
-
 ?>

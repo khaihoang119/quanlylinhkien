@@ -40,6 +40,8 @@
                                 <thead>
                                 <tr>
                                     <th>MÃ SP</th>
+                                    <th>LOẠI SẢN PHẨM
+                                    <th>
                                     <th>TÊN SẢN PHẨM
                                     <th>
                                     <th>GIÁ
@@ -49,8 +51,6 @@
                                     <th>MÔ TẢ NGẮN
                                     <th>
                                     <th>MÔ TẢ DÀI
-                                    <th>
-                                    <th>LOẠI SẢN PHẨM
                                     <th>
                                     <th>TRẠNG THÁI
                                     <th>
@@ -62,7 +62,7 @@
                                     extract($sanpham);
                                     $suasp = "index.php?act=suasp&id=" . $productID;
                                     $xoasp = "index.php?act=xoasp&id=" . $productID;
-                                    $hinhpath = "upload/" . $image;
+                                    $hinhpath = "../upload/" . $image;
                                     if (is_file($hinhpath)) {
                                         $image = "<img src='" . $hinhpath . "' height = '60px'>";
                                     } else {
@@ -71,6 +71,8 @@
                                     ?>
                                     <tr>
                                         <th><?= $productID ?></th>
+                                        <th><?= $categoryID ?>
+                                        <th>
                                         <th><?= $productName ?>
                                         <th>
                                         <th><?= $productPrice ?>
@@ -80,8 +82,6 @@
                                         <th><?= $shortDes ?>
                                         <th>
                                         <th><?= $longDes ?>
-                                        <th>
-                                        <th><?= $categoryID ?>
                                         <th>
                                         <th><?= $status ?>
                                         <th>

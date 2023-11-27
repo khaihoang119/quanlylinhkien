@@ -42,6 +42,7 @@
                                 <tr>
                                     <th>ID</th>
                                     <th>Tên</th>
+                                    <th>Trạng Thái</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -54,6 +55,7 @@
                                     <tr>
                                         <th><?= $categoryID ?></th>
                                         <td><?= $name ?></td>
+                                        <td><?= $status ?></td>
                                         <td><a class="btn btn-outline-info" href="<?= $suadm ?>">Sửa</a></td>
                                         <td><a class="btn btn-outline-danger" href="<?= $xoadm ?>"
                                                onclick="return confirm('Bạn có chắc chắn muốn xóa?')">Xóa</a></td>

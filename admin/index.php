@@ -16,9 +16,10 @@ if (isset($_GET['act'])) {
         case 'adddm':
             if (isset($_POST['themmoi']) && ($_POST['themmoi'])) {
                 $tenloai = $_POST['tenloai'];
-                insert_danhmuc($tenloai);
+                $status = $_POST['trangthai'];
+                insert_danhmuc($tenloai, $status);
                 $thongbao = "Thêm thành công";
-
+                
             }
             include "danhmuc/add.php";
             break;
@@ -72,13 +73,60 @@ if (isset($_GET['act'])) {
                 $motadai = $_POST['motadai'];
                 $iddm = $_POST['iddm'];
                 $status = $_POST['trangthai'];
-
+                $target_dir = "../upload/";;
+                $target_file = $target_dir . basename($_FILES["hinh"]["name"]);
+                if (move_uploaded_file($_FILES["hinh"]["tmp_name"], $target_file)) {
+                    //quá là ok
+                } else {
+                    // lỗi r
+                }
                 insert_sanpham($tensp, $giasp, $hinh, $motangan, $motadai, $iddm, $status);
                 $thongbao = "Thêm thành công";
 
             }
             $listdanhmuc = loadall_danhmuc();
             include "sanpham/add.php";
+            break;
+        case 'suasp':
+            if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+                $sanpham = loadone_sanpham($_GET['id']);
+            }
+            $listdanhmuc = loadall_danhmuc();
+            include "sanpham/update.php";
+            break;
+
+        case 'xoasp':
+            if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+                delete_sanpham($_GET['id']);
+            }
+            $listsanpham = loadall_sanpham("", 0);
+            include "sanpham/index.php";
+            break;
+        case 'updatesp':
+            // Kiểm tra xem người dùng có click vào nút add hay không
+            if (isset($_POST['capnhat']) && ($_POST['capnhat'])) {
+                $id = $_POST['id'];
+                $iddm = $_POST['iddm'];
+                $tensp = $_POST['tensp'];
+                $giasp = $_POST['giasp'];
+                $hinh = $_FILES['hinh']['name'];
+                $motangan = $_POST['motangan'];
+                $motadai = $_POST['motadai'];
+                $status = $_POST['trangthai'];
+                $target_dir = "../upload/";;
+                $target_file = $target_dir . basename($_FILES["hinh"]["name"]);
+                if (move_uploaded_file($_FILES["hinh"]["tmp_name"], $target_file)) {
+                    //quá là ok
+                } else {
+                    // lỗi r
+                }
+                update_sanpham($id, $iddm, $tensp, $giasp, $hinh, $motangan, $motadai, $status);
+                $thongbao = "Cập nhật thành công thành công";
+
+            }
+            $listdanhmuc = loadall_danhmuc();
+            $listsanpham = loadall_sanpham("", 0);
+            include "sanpham/index.php";
             break;
 
 
@@ -93,21 +141,20 @@ if (isset($_GET['act'])) {
             include "taikhoan/index.php";
             break;
         case 'addtk':
+            // Kiểm tra xem người dùng có click vào nút add hay không
             if (isset($_POST['themmoi']) && ($_POST['themmoi'])) {
                 $tentk = $_POST['tenuser'];
-                $emailtk = $_POST['emailuser'];
                 $mktk = $_POST['mkuser'];
-                $lname = $_POST['lastname'];
-                $fname = $_POST['firstname'];
-                $addresstk = $_POST['address'];
+                $emailtk = $_POST['emailuser'];
+                $addresstk = $_POST['aduser'];
                 $phonetk = $_POST['phoneuser'];
                 $role = $_POST['role'];
-                insert_taikhoan($tentk, $emailtk, $mktk, $lname, $fname, $addresstk, $phonetk, $role);
+                insert_taikhoan($emailtk, $tentk, $mktk, $addresstk, $phonetk, $role);
                 $thongbao = "Thêm thành công";
 
             }
             $listtaikhoan = loadall_taikhoan();
-            include "taikhoan/add.php";
+            include "./taikhoan/add.php";
             break;
         case 'listbill':
             include "bill/index.php";
