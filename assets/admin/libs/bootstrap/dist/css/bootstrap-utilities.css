@@ -1903,7 +1903,6 @@
         text-align: center !important;
     }
 }
-
 @media (min-width: 768px) {
     .float-md-start {
         float: left !important;
@@ -2555,7 +2554,6 @@
         text-align: center !important;
     }
 }
-
 @media (min-width: 992px) {
     .float-lg-start {
         float: left !important;
@@ -3207,7 +3205,6 @@
         text-align: center !important;
     }
 }
-
 @media (min-width: 1200px) {
     .float-xl-start {
         float: left !important;
@@ -3859,7 +3856,6 @@
         text-align: center !important;
     }
 }
-
 @media (min-width: 1400px) {
     .float-xxl-start {
         float: left !important;
@@ -4511,7 +4507,6 @@
         text-align: center !important;
     }
 }
-
 @media (min-width: 1200px) {
     .fs-1 {
         font-size: 2.5rem !important;
@@ -4577,7 +4572,6 @@
         font-size: 1.5rem !important;
     }
 }
-
 @media print {
     .d-print-inline {
         display: inline !important;

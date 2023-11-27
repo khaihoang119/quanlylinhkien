@@ -29,7 +29,7 @@ $(function () {
 
     });
 
-    element.addClass("active");
+    element.addClass("active"); 
     $('#sidebarnav a').on('click', function (e) {
 
         if (!$(this).hasClass("active")) {

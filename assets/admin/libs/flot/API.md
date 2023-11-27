@@ -567,7 +567,6 @@ In Python you can get it with something like:
 ```python
 calendar.timegm(datetime_object.timetuple()) * 1000
 ```
-
 In Ruby you can get it using the `#to_i` method on the
 [`Time`](http://apidock.com/ruby/Time/to_i) object. If you're using the
 `active_support` gem (default for Ruby on Rails applications) `#to_i` is also
@@ -619,7 +618,6 @@ interpret the timestamps according to that time zone.
 Once you've gotten the timestamps into the data and specified "time"
 as the axis mode, Flot will automatically generate relevant ticks and
 format them. As always, you can tweak the ticks via the "ticks" option
-
 - just remember that the values should be timestamps (numbers), not
   Date objects.
 
