@@ -50,6 +50,18 @@
                                     </select>
                                 </div>
                             </div>
+                            <div class="form-group row">
+                                <label for="ten" class="col-sm-3 text-end control-label col-form-label">Trạng
+                                    Thái</label>
+                                <div class="col-sm-9">
+                                    <select class="select2 form-select shadow-none" style="width: 100%; height:36px;"
+                                            name="trangthai">
+                                        <option value="1">Hiển thị</option>
+                                        <option value="0">Ẩn</option>
+                                    </select>
+                                </div>
+
+                            </div>
                         </div>
                         <div class="border-top">
                             <div class="card-body">

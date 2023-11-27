@@ -58,14 +58,13 @@ function sp_update_view($id)
     return $listsanpham;
 }
 
-function update_sanpham($id, $iddm, $tensp, $giasp, $mota, $hinh)
+function update_sanpham($id, $iddm, $tensp, $giasp, $hinh, $motangan, $motadai, $status)
 {
     if ($hinh != "") {
-        $sql = "update products set iddm = '" . $iddm . "',name = '" . $tensp . "', price = '" . $giasp . "', mota = '" . $mota . "', img = '" . $hinh . "' where id =" . $id;
+        $sql = "update products set categoryID = '" . $iddm . "',productName = '" . $tensp . "', productPrice = '" . $giasp . "', shortDes = '" . $motangan . "', longDes = '" . $motadai . "', image = '" . $hinh . "',status = '" . $status . "' = where productID =" . $id;
     } else {
-        $sql = "update products set iddm = '" . $iddm . "',name = '" . $tensp . "', price = '" . $giasp . "', mota = '" . $mota . "' where id =" . $id;
+        $sql = "update products set categoryID = '" . $iddm . "',productName = '" . $tensp . "', productPrice = '" . $giasp . "', shortDes = '" . $motangan . "', longDes = '" . $motadai . "',status = '" . $status . "' where productID =" . $id;
     }
     pdo_execute($sql);
 }
-
 ?>

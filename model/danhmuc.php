@@ -1,7 +1,7 @@
 <?php
-function insert_danhmuc($tenloai)
+function insert_danhmuc($tenloai, $status)
 {
-    $sql = "insert into categories(name) values('$tenloai')";
+    $sql = "insert into categories(name,status) values('$tenloai','$status')";
     pdo_execute($sql);
 }
 
@@ -30,5 +30,4 @@ function update_danhmuc($id, $tenloai)
     $sql = "update categories set name = '" . $tenloai . "' where categoryID =" . $id;
     pdo_execute($sql);
 }
-
 ?>
