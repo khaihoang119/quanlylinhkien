@@ -27,7 +27,7 @@
     }else{
         include "view/home.php";
     }
-include './view/footer.php';
+include 'view/footer.php';
 ?>
 <!doctype html>
 <html lang="en">
@@ -59,7 +59,6 @@ include './view/footer.php';
 <body>
 <script src="assets/client/vendor/aos/aos.js"></script>
 <script src="assets/client/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="assets/client/vendor/isotope-layout/isotope.pkgd.min.js"></script>
 <script src="assets/client/vendor/swiper/swiper-bundle.min.js"></script>
 <script src="assets/client/vendor/php-email-form/validate.js"></script>
 
