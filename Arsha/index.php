@@ -15,7 +15,10 @@
                 include "view/about-us.php";
                 break;
             case 'login':
-                include "view/login.php";
+                include "view/account/login.php";
+                break;
+            case 'register':
+                include "view/account/register.php";
                 break;
             default:
             include "view/home.php";

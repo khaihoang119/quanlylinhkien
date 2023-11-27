@@ -23,7 +23,7 @@
             <ul>
                 <li><a class="nav-link scrollto" href="index.php?">Trang chủ</a></li>
                 <li><a class="nav-link scrollto" href="index.php?act=about-us">Về Chúng tôi</a></li>
-                <li class="dropdown"><a href="index.php?act=product""><span>Sản phẩm</span> <i class="bi bi-chevron-down"></i></a>
+                <li class="dropdown"><a href="index.php?act=product"><span>Sản phẩm</span> <i class="bi bi-chevron-down"></i></a>
                     <ul>
                         <li><a href="index.php?act=product-detail">chi tiết sản phẩm</a></li>
                         <li class="dropdown"><a href="#"><span>Bàn Phím</span></a></li>
