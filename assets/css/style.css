@@ -133,7 +133,7 @@ h6 {
 }
 
 #header .logo img {
-  max-height: 80px;
+  max-height: 40px;
 }
 
 /*--------------------------------------------------------------
@@ -1597,7 +1597,7 @@ section {
   padding: 15px 0;
   background: #f3f5fa;
   min-height: 40px;
-  margin-top: 0px;
+  margin-top: 72px;
 }
 
 @media (max-width: 992px) {
@@ -1822,8 +1822,4 @@ section {
   #footer .credits {
     padding-top: 4px;
   }
-}
-/*fontsize*/
-.font{
-    font-size:10px;
 }
