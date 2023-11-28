@@ -30,7 +30,7 @@
     <section id="breadcrumbs" class="breadcrumbs">
         <div class="container mt-2">
             <ol>
-                <li><a href="home.php">Trang Chủ</a></li>
+                <li><a href="index.php">Trang Chủ</a></li>
                 <li>Sản Phẩm</li>
             </ol>
             <h2>Sản Phẩm</h2>

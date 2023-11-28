@@ -20,6 +20,9 @@
             case 'register':
                 include "view/account/register.php";
                 break;
+            case 'edit-account':
+                include "view/account/edit-account.php";
+                break;
             default:
             include "view/home.php";
                 break;
@@ -27,7 +30,7 @@
     }else{
         include "view/home.php";
     }
-include './view/footer.php';
+include 'view/footer.php';
 ?>
 <!doctype html>
 <html lang="en">
@@ -36,7 +39,7 @@ include './view/footer.php';
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>page</title>
+    <title>trang chính</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
     <!-- Favicons -->
@@ -57,7 +60,7 @@ include './view/footer.php';
 
     <!-- Template Main CSS File -->
     <link href="assets/client/css/style.css" rel="stylesheet">
-    <link href="assets/client/css/style2.css" rel="stylesheet">
+
 </head>
 <body>
 <script src="assets/client/vendor/aos/aos.js"></script>
