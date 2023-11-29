@@ -62,7 +62,7 @@
                                         <td><input type="checkbox" name="" id=""></td>
                                         <td><?= $userID ?></td>
                                         <td><?= $username ?></td>
-                                        <td><<?= $email ?></td>
+                                        <td><?= $email ?></td>
                                         <td><?= $password ?></td>
                                         <th><?= $fullName ?></th>
                                         <td><?= $phoneNumber ?></td>
