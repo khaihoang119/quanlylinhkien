@@ -133,7 +133,7 @@ h6 {
 }
 
 #header .logo img {
-  max-height: 40px;
+  max-height: 80px;
 }
 
 /*--------------------------------------------------------------
@@ -1822,4 +1822,8 @@ section {
   #footer .credits {
     padding-top: 4px;
   }
+}
+/*fontsize*/
+.font{
+    font-size:10px;
 }
