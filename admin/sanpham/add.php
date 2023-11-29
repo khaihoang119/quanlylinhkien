@@ -31,45 +31,61 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
-                    <form class="form-horizontal" action="sanpham-them-xuly.php" method="post"
-                          enctype="multipart/form-data">
+                    <form class="form-horizontal" action="index.php?act=addsp" method="post"
+                          onsubmit="return validateForm();" enctype="multipart/form-data">
                         <div class="card-body">
                             <h4 class="card-title">Thêm sản phẩm</h4>
                             <div class="form-group row">
                                 <label for="ten" class="col-sm-3 text-end control-label col-form-label">Tên sản
                                     phẩm</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="ten" name="ten" require>
+                                    <input type="text" class="form-control" id="tensp" name="tensp" require>
+                                    <p style="color: red;" id="tensanpham"></p>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="gia" class="col-sm-3 text-end control-label col-form-label">Giá</label>
                                 <div class="col-sm-9">
-                                    <input type="number" class="form-control" id="gia" name="gia" require>
+                                    <input type="number" class="form-control" id="giasp" name="giasp" require>
+                                    <p style="color: red;" id="giasanpham"></p>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="hinhanh" class="col-sm-3 text-end control-label col-form-label">Hình
                                     ảnh</label>
                                 <div class="col-sm-9">
-                                    <input type="file" class="form-control" id="hinhanh" name="hinhanh" require>
+                                    <input type="file" class="form-control" id="photo" name="hinh" require>
+                                    <p style="color: red;" id="photo-loi"></p>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="mota" class="col-sm-3 text-end control-label col-form-label">Mô tả</label>
+                                <label for="mota" class="col-sm-3 text-end control-label col-form-label">Mô tả
+                                    ngắn</label>
                                 <div class="col-sm-9">
-                                    <textarea class="form-control" id="mota" name="mota" require></textarea>
+                                    <textarea class="form-control" id="motangan" name="motangan" require></textarea>
+                                    <p style="color: red;" id="motangan-loi"></p>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="mota" class="col-sm-3 text-end control-label col-form-label">Mô tả
+                                    dài</label>
+                                <div class="col-sm-9">
+                                    <textarea class="form-control" id="motadai" name="motadai" require></textarea>
+                                    <p style="color: red;" id="motandai-loi"></p>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-sm-3 text-end control-label col-form-label">Loại sản phẩm</label>
                                 <div class="col-md-9">
                                     <select class="select2 form-select shadow-none" style="width: 100%; height:36px;"
-                                            name="id_lsp">
+                                            name="iddm">
 
-                                        <option value=""></option>
-
-
+                                        <?php
+                                        foreach ($listdanhmuc as $danhmuc) {
+                                            extract($danhmuc);
+                                            echo '<option value="' . $categoryID . '">' . $name . '</option>';
+                                        }
+                                        ?>
                                     </select>
                                 </div>
                             </div>
@@ -87,9 +103,14 @@
                         </div>
                         <div class="border-top">
                             <div class="card-body">
-                                <button type="submit" class="btn btn-primary" name="them">Thêm</button>
+                                <input type="submit" class="btn btn-primary" name="themmoi" value="Thêm Mới"></input>
                             </div>
                         </div>
+                        <?php
+                        if (isset($thongbao) && ($thongbao != "")) {
+                            echo $thongbao;
+                        }
+                        ?>
                     </form>
                 </div>
 
@@ -108,3 +129,50 @@
         <!-- End Right sidebar -->
         <!-- ============================================================== -->
     </div>
+    <script>
+        function validateForm() {
+            let tensp = document.getElementById("tensp").value;
+            let giasp = document.getElementById("giasp").value;
+            let photo = document.getElementById("photo").value;
+            let motadai = document.getElementById("motangan").value;
+            let motadai = document.getElementById("motadai").value;
+            let text;
+            if (tensp == "") {
+                text = "Tên sản phẩm không được để trống";
+                document.getElementById("tensanpham").innerHTML = text;
+                return false;
+            } else {
+                text = "";
+                document.getElementById("tensanpham").innerHTML = text;
+            }
+
+            if (giasp == "" || giasp <= 0) {
+                text = "Giá sản phẩm không được để trống và phải lớn hơn 0";
+                document.getElementById("giasanpham").innerHTML = text;
+                return false;
+            } else {
+                text = "";
+                document.getElementById("giasanpham").innerHTML = text;
+            }
+
+            if (photo == "") {
+                text = "Hình sản phẩm không được để trống";
+                document.getElementById("photo-loi").innerHTML = text;
+                return false;
+            } else {
+                text = "";
+                document.getElementById("photo-loi").innerHTML = text;
+            }
+
+            if (motadai == "") {
+                text = "Mô tả sản phẩm không được để trống";
+                document.getElementById("motandai-loi").innerHTML = text;
+                return false;
+            }
+            if (motangan == "") {
+                text = "Mô tả sản phẩm không được để trống";
+                document.getElementById("motangan-loi").innerHTML = text;
+                return false;
+            }
+        }
+    </script>

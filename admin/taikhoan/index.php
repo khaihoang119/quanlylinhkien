@@ -39,7 +39,7 @@
                             <table id="" class="table table-striped table-bordered">
                                 <thead>
                                 <tr>
-                                    <th></th>
+                                    <td></td>
                                     <th>ID</th>
                                     <th>Tài Khoản</th>
                                     <th>Email</th>
@@ -62,11 +62,12 @@
                                         <td><input type="checkbox" name="" id=""></td>
                                         <td><?= $userID ?></td>
                                         <td><?= $username ?></td>
-                                        <td><<?= $email ?></td>
+                                        <td><?= $email ?></td>
                                         <td><?= $password ?></td>
                                         <th><?= $fullName ?></th>
                                         <td><?= $phoneNumber ?></td>
                                         <td><?= ($role == 0) ? "Khách hàng" : "Admin" ?></td>
+                                        <td><?= ($status == 0) ? "Chặn" : "Bình Thường" ?></td>
                                         <td></td>
                                         <td><a class="btn btn-outline-info" href="<?= $suatk ?>">Sửa</a></td>
                                         <td><a class="btn btn-outline-danger" href="<?= $xoatk ?>"
