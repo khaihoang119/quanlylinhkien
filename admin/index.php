@@ -47,8 +47,6 @@ if (isset($_GET['act'])) {
             $listdanhmuc = loadall_danhmuc();
             include "danhmuc/index.php";
             break;
-
-
         case 'sanpham':
             if (isset($_POST['listok']) && ($_POST['listok'])) {
                 $kyw = $_POST['kyw'];
@@ -131,30 +129,30 @@ if (isset($_GET['act'])) {
 
 
         case 'dsbl':
+            $listbinhluan = loadall_binhluan(0);
             include "binhluan/index.php";
             break;
-
-
         case 'dskh':
             $listtaikhoan = loadall_taikhoan();
             // $listtaikhoan = loadall_taikhoan("",0);
             include "taikhoan/index.php";
             break;
+
         case 'addtk':
-            // Kiểm tra xem người dùng có click vào nút add hay không
             if (isset($_POST['themmoi']) && ($_POST['themmoi'])) {
-                $tentk = $_POST['tenuser'];
-                $mktk = $_POST['mkuser'];
-                $emailtk = $_POST['emailuser'];
-                $addresstk = $_POST['aduser'];
-                $phonetk = $_POST['phoneuser'];
+                $user = $_POST['tenuser'];
+                $email = $_POST['emailuser'];
+                $pass = $_POST['mkuser'];
+                $fullName = $_POST['fullname'];
+                $tel = $_POST['phoneuser'];
                 $role = $_POST['role'];
-                insert_taikhoan($emailtk, $tentk, $mktk, $addresstk, $phonetk, $role);
+                $status = $_POST['status'];
+                insert_taikhoan($user, $email, $pass, $fullName, $tel, $role, $status);
                 $thongbao = "Thêm thành công";
 
             }
             $listtaikhoan = loadall_taikhoan();
-            include "./taikhoan/add.php";
+            include "taikhoan/add.php";
             break;
         case 'listbill':
             include "bill/index.php";

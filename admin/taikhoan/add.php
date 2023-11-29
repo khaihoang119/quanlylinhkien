@@ -92,7 +92,8 @@
                         </div>
                         <div class="border-top">
                             <div class="card-body">
-                                <input type="submit" class="btn btn-primary" name="themmoi" value="Thêm Mới"></input>
+                                <input type="submit" class="btn btn-primary" name="themmoi" onclick="validateForm()"
+                                       value="Thêm Mới">
                                 <input type="reset" class="btn btn-primary" value="Nhập Lại"></input>
                             </div>
                         </div>
