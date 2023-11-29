@@ -134,7 +134,7 @@
             let tensp = document.getElementById("tensp").value;
             let giasp = document.getElementById("giasp").value;
             let photo = document.getElementById("photo").value;
-            let motadai = document.getElementById("motangan").value;
+            let motangan = document.getElementById("motangan").value;
             let motadai = document.getElementById("motadai").value;
             let text;
             if (tensp == "") {
