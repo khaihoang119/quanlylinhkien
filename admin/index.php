@@ -157,6 +157,13 @@ if (isset($_GET['act'])) {
         case 'listbill':
             include "bill/index.php";
             break;
+        case 'xoatk':
+            if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+                delete_user($_GET['id']);
+            }
+            $listtaikhoan = loadall_taikhoan();
+            // $listtaikhoan = loadall_taikhoan("",0);
+            include "taikhoan/index.php";
     }
 } else {
     include "home.php";
