@@ -33,15 +33,15 @@ function checkemail($email)
     return $sp;
 }
 
-function update_taikhoan($id, $user, $pass, $email, $address, $lastName, $firstName, $tel)
+function update_taikhoan($id, $user, $pass, $email, $fullName, $tel)
 {
     $sql = "update account set username = '" . $user . "', password = '" . $pass . "',email = '" . $email . "',fullName = '" . $fullname . "', phoneNumber = '" . $tel . "' where id =" . $id;
     pdo_execute($sql);
 }
 
-function update_taikhoan_admin($id, $user, $pass, $email, $address, $lastName, $firstName, $tel, $role)
+function update_taikhoan_admin($id, $user, $email, $pass, $fullName, $tel, $role, $status)
 {
-    $sql = "update account set username = '" . $user . "', password = '" . $pass . "',email = '" . $email . "', address = '" . $address . "',lastName = '" . $lastName . "',firstName = '" . $firstName . "' phoneNumber = '" . $tel . "', role = '" . $role . "' where userID =" . $id;
+    $sql = "update account set username = '" . $user . "', email = '" . $email . "',password = '" . $pass . "',fullName = '" . $fullName . "', phoneNumber = '" . $tel . "', role = '" . $role . "' where userID =" . $id;
     pdo_execute($sql);
 }
 
