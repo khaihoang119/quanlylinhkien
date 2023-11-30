@@ -51,9 +51,10 @@ if (is_array($dm)) {
                             <div class="form-group row">
                                 <label for="ten" class="col-sm-3 text-end control-label col-form-label">Tên</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="tenloai"
+                                    <input type="text" class="form-control" id="tloai"
                                            placeholder="Nhập tên loại sản phẩm..." name="tenloai"
                                            value="<?php if (isset($name) && ($name != "")) echo $name; ?>">
+                                    <p style="color: red;" id="tenloai"></p>
                                 </div>
                             </div>
                         </div>
@@ -95,7 +96,7 @@ if (is_array($dm)) {
     <!-- ============================================================== -->
     <script>
         function validateForm() {
-            let x = document.getElementById("tenloai").value;
+            let x = document.getElementById("tloai").value;
             let text;
             if (x == "") {
                 text = "Tên loại không được để trống";
