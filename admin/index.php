@@ -170,6 +170,23 @@ if (isset($_GET['act'])) {
             }
             include "taikhoan/update.php";
             break;
+        case 'updatetk':
+            // Kiểm tra xem người dùng có click vào nút add hay không
+            if (isset($_POST['capnhat']) && ($_POST['capnhat'])) {
+                $id = $_POST['id'];
+                $user = $_POST['tenuser'];
+                $email = $_POST['emailuser'];
+                $pass = $_POST['mkuser'];
+                $fullName = $_POST['fullname'];
+                $tel = $_POST['phoneuser'];
+                $role = $_POST['role'];
+                $status = $_POST['status'];
+                update_taikhoan_admin($id, $user, $email, $pass, $fullName, $tel, $role, $status);
+                $thongbao = "Cập nhật thành công thành công";
+            }
+            $listtaikhoan = loadall_taikhoan();
+            include "taikhoan/index.php";
+            break;
     }
 } else {
     include "home.php";
