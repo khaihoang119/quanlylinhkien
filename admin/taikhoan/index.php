@@ -39,7 +39,6 @@
                             <table id="" class="table table-striped table-bordered">
                                 <thead>
                                 <tr>
-                                    <td></td>
                                     <th>ID</th>
                                     <th>Tài Khoản</th>
                                     <th>Email</th>
@@ -59,7 +58,6 @@
                                     $xoatk = "index.php?act=xoatk&id=" . $userID;
                                     ?>
                                     <tr>
-                                        <td><input type="checkbox" name="" id=""></td>
                                         <td><?= $userID ?></td>
                                         <td><?= $username ?></td>
                                         <td><?= $email ?></td>

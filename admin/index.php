@@ -4,6 +4,7 @@ include "../config/pdo.php";
 include "../model/danhmuc.php";
 include "../model/taikhoan.php";
 include "../model/sanpham.php";
+include "../model/binhluan.php";
 include "header.php";
 
 if (isset($_GET['act'])) {
@@ -167,7 +168,12 @@ if (isset($_GET['act'])) {
             }
             $listtaikhoan = loadall_taikhoan();
             // $listtaikhoan = loadall_taikhoan("",0);
-            include "taikhoan/index.php";
+        case 'suatk':
+            if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+                $taikhoan = loadone_taikhoan($_GET['id']);
+            }
+            include "taikhoan/update.php";
+            break;
     }
 } else {
     include "home.php";
