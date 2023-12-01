@@ -48,19 +48,21 @@
             case 'about-us':
                 include "view/about-us.php";
                 break;
-            case 'login':
-                include "view/account/login.php";
-                break;
+
             case 'register':
                 if(isset($_POST['register'])&&($_POST['register'])){
                     $user=$_POST['username'];
                     $email=$_POST['email'];
-                    $pass=$_POST['password'];
+                    $tel=$_POST['phone'];
+                    $pass=$_POST['pass'];
                     $fullName=$_POST['fullName'];
-                    insert_taikhoan($user,$email,$pass,$fullName);
+                    insert_taikhoan($user, $email, $pass, $fullName, $tel);
                     $thongbao="Bạn đã đăng ký thành công.";
                 }
                 include "view/account/register.php";
+                break;
+            case 'login':
+                include "view/account/login.php";
                 break;
             case 'edit-account':
                 include "view/account/edit-account.php";

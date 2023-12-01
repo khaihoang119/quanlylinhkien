@@ -145,14 +145,14 @@ if (isset($_GET['act'])) {
 
         case 'addtk':
             if (isset($_POST['themmoi']) && ($_POST['themmoi'])) {
-                $user = $_POST['tenuser'];
-                $email = $_POST['emailuser'];
-                $pass = $_POST['mkuser'];
-                $fullName = $_POST['fullname'];
-                $tel = $_POST['phoneuser'];
+                $usertk = $_POST['tenuser'];
+                $emailtk = $_POST['emailuser'];
+                $passtk = $_POST['mkuser'];
+                $fullNametk = $_POST['fullname'];
+                $teltk = $_POST['phoneuser'];
                 $role = $_POST['role'];
                 $status = $_POST['status'];
-                insert_taikhoan($user, $email, $pass, $fullName, $tel, $role, $status);
+                insert_taikhoan($usertk, $emailtk, $passtk, $fullNametk, $teltk, $role, $status);
                 $thongbao = "Thêm thành công";
 
             }

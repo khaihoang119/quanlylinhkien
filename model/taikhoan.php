@@ -13,9 +13,9 @@ function loadone_taikhoan($id)
     return $taikhoan;
 }
 
-function insert_taikhoan($user, $email, $pass, $fullName, $tel , $role, $status)
+function insert_taikhoan($user, $email, $pass, $fullName, $tel)
 {
-    $sql = "insert into account(username,email,password,fullName,phoneNumber,role,status) values('$user','$email','$pass','$fullName','$tel','$role','$status')";
+    $sql = "insert into account(username,email,password,fullName,phoneNumber) values('$user','$email','$pass','$fullName','$tel')";
     pdo_execute($sql);
 }
 
