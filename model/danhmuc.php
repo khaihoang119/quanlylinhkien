@@ -11,10 +11,9 @@ function delete_danhmuc($id)
     pdo_execute($sql);
 }
 
-function loadall_danhmuc()
-{
-    $sql = "select * from categories order by categoryID desc ";
-    $listdanhmuc = pdo_query($sql);
+function loadall_danhmuc(){
+    $sql="select * from categories order by categoryID desc";
+    $listdanhmuc=pdo_query($sql);
     return $listdanhmuc;
 }
 

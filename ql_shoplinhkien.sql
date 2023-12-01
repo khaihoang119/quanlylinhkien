@@ -128,7 +128,7 @@ CREATE TABLE `products`
 
 INSERT INTO `products` (`productID`, `productName`, `image`, `productPrice`, `shortDes`, `longDes`, `categoryID`,
                         `status`)
-VALUES (6, 'Bàn Phím Cơ ', 'OIP.jpg', 25000000, 'ngon', 'rất ngon', 15, 1);
+VALUES (6, 'Bàn Phím Cơ ', 'manhinh01.jpg', 25000000, 'ngon', 'rất ngon', 15, 1);
 
 --
 -- Indexes for dumped tables

@@ -44,7 +44,7 @@ function loadone_sanpham($id)
     return $sp;
 }
 
-function load_sanpham_cungloai($id, $iddm)
+function load_sanpham_cungloai($id,$iddm)
 {
     $sql = "select * from products where categoryID = " . $iddm . "  and categoryID <> " . $id;
     $listsanpham = pdo_query($sql);

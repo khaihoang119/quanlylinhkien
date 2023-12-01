@@ -39,12 +39,20 @@
             <ul>
                 <li><a class="nav-link scrollto" href="index.php?">Trang chủ</a></li>
                 <li><a class="nav-link scrollto" href="index.php?act=about-us">Về Chúng tôi</a></li>
-                <li class="dropdown"><a href="index.php?act=product"><span>Sản phẩm</span> <i class="bi bi-chevron-down"></i></a>
-                    <ul>
-                        <li><a href="index.php?act=product-detail">chi tiết sản phẩm</a></li>
-                        <li class="dropdown"><a href="#"><span>Bàn Phím</span></a></li>
-                        <li class="dropdown"><a href="#"><span>Màn Hình</span></a></li>
-                    </ul>
+                <li class="nav-link scrollto"><a href="index.php?act=product">Sản phẩm</a>
+<!--                    <ul>-->
+<!--                        --><?php
+//
+//                        foreach($dsdm as $dm){
+//                            extract($dm);
+//                            $linkdm ="index.php?act=product&iddm=" .$categoryID;
+//                            echo'
+//                                <li class="dropdown"><a href="'. $linkdm .'"><span>'. $name .'</span></a></li>
+//                                ';
+//                        }
+//                        ?>
+<!--                        -->
+<!--                    </ul>-->
                 </li>
                 <li><a class="getstarted scrollto" href="index.php?act=login">Đăng Nhập</a></li>
             </ul>
