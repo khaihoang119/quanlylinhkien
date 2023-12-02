@@ -13,9 +13,9 @@ function loadone_taikhoan($id)
     return $taikhoan;
 }
 
-function insert_taikhoan($user, $email, $pass, $fullName, $tel)
+function insert_taikhoan($user, $email, $pass, $fullName, $tel, $role, $status)
 {
-    $sql = "insert into account(username,email,password,fullName,phoneNumber) values('$user','$email','$pass','$fullName','$tel')";
+    $sql = "insert into account(username,email,password,fullName,phoneNumber,role, status) values('$user','$email','$pass','$fullName','$tel','$role','$status')";
     pdo_execute($sql);
 }
 
@@ -35,7 +35,7 @@ function checkemail($email)
 
 function update_taikhoan($id, $user, $pass, $email, $fullName, $tel)
 {
-    $sql = "update account set username = '" . $user . "', password = '" . $pass . "',email = '" . $email . "',fullName = '" . $fullname . "', phoneNumber = '" . $tel . "' where id =" . $id;
+    $sql = "update account set username = '" . $user . "', password = '" . $pass . "',email = '" . $email . "',fullName = '" . $fullName . "', phoneNumber = '" . $tel . "' where id =" . $id;
     pdo_execute($sql);
 }
 

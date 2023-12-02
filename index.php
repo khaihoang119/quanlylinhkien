@@ -56,7 +56,9 @@
                     $tel=$_POST['phone'];
                     $pass=$_POST['pass'];
                     $fullName=$_POST['fullName'];
-                    insert_taikhoan($user, $email, $pass, $fullName, $tel);
+                    $role = 0;
+                    $status = 1;
+                    insert_taikhoan($user, $email, $pass, $fullName, $tel, $role, $status);
                     $thongbao="Bạn đã đăng ký thành công.";
                 }
                 include "view/account/register.php";

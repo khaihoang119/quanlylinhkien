@@ -89,7 +89,7 @@
             </form>
             <?php
             if(isset($thongbao)&&($thongbao!="")){
-                echo $thongbao;
+                echo "<script type='text/javascript'>alert('$thongbao');</script>";
             }
 
             ?>
