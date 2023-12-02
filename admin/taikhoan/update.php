@@ -10,7 +10,7 @@ if (is_array($taikhoan)) {
     <div class="page-breadcrumb">
         <div class="row">
             <div class="col-12 d-flex no-block align-items-center">
-                <h4 class="page-title">QUẢN LÝ TÀI KHOẢN</h4>
+                <h4 class="page-title">CẬP NHẬT TÀI KHOẢN</h4>
                 <div class="ms-auto text-end">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
@@ -36,10 +36,10 @@ if (is_array($taikhoan)) {
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
-                    <form class="form-horizontal" action="index.php?act=suatk" method="post"
+                    <form class="form-horizontal" action="index.php?act=updatetk" method="post"
                           enctype="multipart/form-data" onsubmit="return validateForm();">
                         <div class="card-body">
-                            <h4 class="card-title">Thêm Tài Khoản</h4>
+                            <h4 class="card-title">Cập Nhật Tài Khoản</h4>
                             <div class="form-group row">
                                 <label for="ten" class="col-sm-3 text-end control-label col-form-label">Tài
                                     Khoản</label>
@@ -53,7 +53,7 @@ if (is_array($taikhoan)) {
                                 <label for="gia" class="col-sm-3 text-end control-label col-form-label">Email</label>
                                 <div class="col-sm-9">
                                     <input type="email" class="form-control" id="emailuser" name="emailuser" require
-                                           value="<?php if (isset($email) && ($email > 0)) echo $email; ?>">
+                                           value="<?php if (isset($email)) echo $email; ?>">
                                     <p style="color: red;" id="emailuser-err"></p>
                                 </div>
                             </div>
@@ -106,8 +106,8 @@ if (is_array($taikhoan)) {
                             <div class="card-body">
                                 <input type="hidden" name="id"
                                        value="<?php if (isset($userID) && ($userID > 0)) echo $userID; ?>">
-                                <input type="submit" class="btn btn-primary" name="themmoi" onclick="validateForm()"
-                                       value="Thêm Mới">
+                                <input type="submit" class="btn btn-primary" name="capnhat" onclick="validateForm()"
+                                       value="Cập Nhật">
                                 <input type="reset" class="btn btn-primary" value="Nhập Lại"></input>
                             </div>
                         </div>

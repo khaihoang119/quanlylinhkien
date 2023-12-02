@@ -39,14 +39,14 @@
                                 <label for="ten" class="col-sm-3 text-end control-label col-form-label">Mã Loại</label>
                                 <div class="col-sm-9">
                                     <input type="text" class="form-control" id="maloai"
-                                           placeholder="Nhập tên loại sản phẩm..." name="maloai" required>
+                                           placeholder="" name="maloai" disabled>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="ten" class="col-sm-3 text-end control-label col-form-label">Tên</label>
+                                <label for="ten" class="col-sm-3 text-end control-label col-form-label">Tên Loại</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="tenloai"
-                                           placeholder="Nhập tên loại sản phẩm..." name="tenloai" required>
+                                    <input type="text" class="form-control" id="tloai" name="tenloai" required>
+                                    <p style="color: red;" id="tenloai"></p>
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -64,7 +64,8 @@
                         </div>
                         <div class="border-top">
                             <div class="card-body">
-                                <input type="submit" class="btn btn-primary" name="themmoi" value="Thêm Mới"></input>
+                                <input type="submit" class="btn btn-primary" name="themmoi" onclick="validateForm()"
+                                       value="Thêm Mới"></input>
                                 <input type="reset" class="btn btn-primary" value="Nhập Lại"></input>
                             </div>
                         </div>
@@ -97,7 +98,7 @@
     <!-- ============================================================== -->
     <script>
         function validateForm() {
-            let x = document.getElementById("tenloai").value;
+            let x = document.getElementById("tloai").value;
             let text;
             if (x == "") {
                 text = "Tên loại không được để trống";

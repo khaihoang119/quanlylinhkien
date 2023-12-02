@@ -32,7 +32,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <form class="form-horizontal" action="index.php?act=addtk" method="post"
-                          enctype="multipart/form-data" onsubmit="return validateForm();">
+                          onsubmit="return validateForm()" enctype="multipart/form-data">
                         <div class="card-body">
                             <h4 class="card-title">Thêm Tài Khoản</h4>
                             <div class="form-group row">

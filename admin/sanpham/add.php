@@ -44,7 +44,7 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="gia" class="col-sm-3 text-end control-label col-form-label">Giá</label>
+                                <label for="number" class="col-sm-3 text-end control-label col-form-label">Giá</label>
                                 <div class="col-sm-9">
                                     <input type="number" class="form-control" id="giasp" name="giasp" require>
                                     <p style="color: red;" id="giasanpham"></p>
@@ -93,7 +93,7 @@
                                 <label class="col-sm-3 text-end control-label col-form-label">Trạng thái</label>
                                 <div class="col-md-9">
                                     <select class="select2 form-select shadow-none" style="width: 100%; height:36px;"
-                                            name="trangthai">
+                                            name="trangthai" id="status">
                                         <option value="1">Hiển thị</option>
                                         <option value="0">Ẩn</option>
 
@@ -103,7 +103,8 @@
                         </div>
                         <div class="border-top">
                             <div class="card-body">
-                                <input type="submit" class="btn btn-primary" name="themmoi" value="Thêm Mới"></input>
+                                <input type="submit" class="btn btn-primary" name="themmoi" value="Thêm Mới"
+                                       onclick="validateForm()"></input>
                             </div>
                         </div>
                         <?php
