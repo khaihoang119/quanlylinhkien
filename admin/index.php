@@ -168,6 +168,8 @@ if (isset($_GET['act'])) {
             }
             $listtaikhoan = loadall_taikhoan();
             // $listtaikhoan = loadall_taikhoan("",0);
+            include "taikhoan/index.php";
+            break;
         case 'suatk':
             if (isset($_GET['id']) && ($_GET['id'] > 0)) {
                 $taikhoan = loadone_taikhoan($_GET['id']);
