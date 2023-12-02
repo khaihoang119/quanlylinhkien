@@ -41,19 +41,12 @@
                                 <tr>
                                     <th>MÃ SP</th>
                                     <th>LOẠI SẢN PHẨM
-                                    <th>
                                     <th>TÊN SẢN PHẨM
-                                    <th>
                                     <th>GIÁ
-                                    <th>
                                     <th>HÌNH ẢNH
-                                    <th>
                                     <th>MÔ TẢ NGẮN
-                                    <th>
                                     <th>MÔ TẢ DÀI
-                                    <th>
                                     <th>TRẠNG THÁI
-                                    <th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -72,19 +65,12 @@
                                     <tr>
                                         <th><?= $productID ?></th>
                                         <th><?= $categoryID ?>
-                                        <th>
                                         <th><?= $productName ?>
-                                        <th>
                                         <th><?= $productPrice ?>
-                                        <th>
                                         <th><?= $image ?>
-                                        <th>
                                         <th><?= $shortDes ?>
-                                        <th>
                                         <th><?= $longDes ?>
-                                        <th>
                                         <th><?= $status ?>
-                                        <th>
                                         <td><a class="btn btn-outline-info" href="<?= $suasp ?>">Sửa</a></td>
                                         <td><a class="btn btn-outline-danger" href="<?= $xoasp ?>"
                                                onclick="return confirm('Bạn có chắc chắn muốn xóa?')">Xóa</a></td>

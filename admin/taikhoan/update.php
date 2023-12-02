@@ -45,7 +45,7 @@ if (is_array($taikhoan)) {
                                     Khoản</label>
                                 <div class="col-sm-9">
                                     <input type="text" class="form-control" id="tenuser" name="tenuser" require
-                                           value="<?php if (isset($username) && ($username > 0)) echo $username; ?>">
+                                           value="<?php if (isset($username)) echo $username; ?>">
                                     <p style="color: red;" id="tenuser-err"></p>
                                 </div>
                             </div>
@@ -137,9 +137,9 @@ if (is_array($taikhoan)) {
     <script>
         function validateForm() {
             let tenuser = document.getElementById("tenuser").value;
-            let mkuser = document.getElementById("mkuser").value;
             let emailuser = document.getElementById("emailuser").value;
-            let aduser = document.getElementById("aduser").value;
+            let mkuser = document.getElementById("mkuser").value;
+            let fullname = document.getElementById("fullname").value;
             let phoneuser = document.getElementById("phoneuser").value;
             let role = document.getElementById("role").value;
             let status = document.getElementById("status").value;
@@ -154,17 +154,6 @@ if (is_array($taikhoan)) {
                 text = "";
                 document.getElementById("tenuser-err").innerHTML = text;
             }
-
-            // Mật khẩu
-            if (mkuser == "") {
-                text = "Mật khẩu không được để trống";
-                document.getElementById("mkuser-err").innerHTML = text;
-                return false;
-            } else {
-                text = "";
-                document.getElementById("mkuser-err").innerHTML = text;
-            }
-
             // Email
             if (emailuser == "") {
                 text = "Email không được để trống";
@@ -174,15 +163,23 @@ if (is_array($taikhoan)) {
                 text = "";
                 document.getElementById("emailuser-err").innerHTML = text;
             }
-
-            // Địa chỉ
-            if (aduser == "") {
-                text = "Địa chỉ không được để trống";
-                document.getElementById("aduser-err").innerHTML = text;
+            // Mật khẩu
+            if (mkuser == "") {
+                text = "Mật khẩu không được để trống";
+                document.getElementById("mkuser-err").innerHTML = text;
                 return false;
             } else {
                 text = "";
-                document.getElementById("aduser-err").innerHTML = text;
+                document.getElementById("mkuser-err").innerHTML = text;
+            }
+            // Địa chỉ
+            if (fullname == "") {
+                text = "Địa chỉ không được để trống";
+                document.getElementById("fullname-err").innerHTML = text;
+                return false;
+            } else {
+                text = "";
+                document.getElementById("fullname-err").innerHTML = text;
             }
 
             // Số điện thoại

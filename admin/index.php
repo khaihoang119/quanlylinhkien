@@ -147,8 +147,8 @@ if (isset($_GET['act'])) {
                 $fullName = $_POST['fullname'];
                 $tel = $_POST['phoneuser'];
                 $role = $_POST['role'];
-                $status = $_POST['status'];
-                insert_taikhoan($user, $email, $pass, $fullName, $tel, $role, $status);
+
+                insert_taikhoan($user, $email, $pass, $fullName, $tel, $role);
                 $thongbao = "Thêm thành công";
 
             }

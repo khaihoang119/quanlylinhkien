@@ -71,7 +71,7 @@
                                     dài</label>
                                 <div class="col-sm-9">
                                     <textarea class="form-control" id="motadai" name="motadai" require></textarea>
-                                    <p style="color: red;" id="motandai-loi"></p>
+                                    <p style="color: red;" id="motadai-loi"></p>
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -135,8 +135,8 @@
             let tensp = document.getElementById("tensp").value;
             let giasp = document.getElementById("giasp").value;
             let photo = document.getElementById("photo").value;
-            let motadai = document.getElementById("motangan").value;
-            let motadai = document.getElementById("motadai").value;
+            let motadai = document.getElementById("motandai").value;
+            let motangan = document.getElementById("motangan").value;
             let text;
             if (tensp == "") {
                 text = "Tên sản phẩm không được để trống";
