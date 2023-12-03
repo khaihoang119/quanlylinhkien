@@ -189,6 +189,9 @@ if (isset($_GET['act'])) {
             $listtaikhoan = loadall_taikhoan();
             include "taikhoan/index.php";
             break;
+        case 'cart':
+            include "cart/index.php";
+            break;
     }
 } else {
     include "home.php";

@@ -16,7 +16,7 @@ if (is_file($hinhpath)) {
     <div class="page-breadcrumb">
         <div class="row">
             <div class="col-12 d-flex no-block align-items-center">
-                <h4 class="page-title">SỬA SẢN PHẨM</h4>
+                <h4 class="page-title">CẬP NHẬT SẢN PHẨM</h4>
                 <div class="ms-auto text-end">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
@@ -45,7 +45,7 @@ if (is_file($hinhpath)) {
                     <form class="form-horizontal" action="index.php?act=updatesp" method="post"
                           onsubmit="return validateForm();" enctype="multipart/form-data">
                         <div class="card-body">
-                            <h4 class="card-title">Sửa sản phẩm</h4>
+                            <h4 class="card-title">Cập Nhật sản phẩm</h4>
                             <div class="form-group row">
                                 <label class="col-sm-3 text-end control-label col-form-label">Loại sản phẩm</label>
                                 <div class="col-md-9">
