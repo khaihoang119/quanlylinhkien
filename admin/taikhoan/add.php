@@ -159,9 +159,9 @@
                 text = "";
                 document.getElementById("mkuser-err").innerHTML = text;
             }
-            // Địa chỉ
+            // Tên
             if (fullname == "") {
-                text = "Địa chỉ không được để trống";
+                text = "Tên không được để trống";
                 document.getElementById("fullname-err").innerHTML = text;
                 return false;
             } else {
@@ -206,3 +206,4 @@
             // }
         }
     </script>
+    
