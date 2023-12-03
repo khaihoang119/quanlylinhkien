@@ -36,10 +36,12 @@
                     <div class="row g-2">
                         <!--products-->
                         <?php
+
                         $i = 0;
                         foreach ($dssp as $sp) {
                             extract($sp);
                             $linksp = "index.php?act=product-detail&idsp=" . $productID;
+
                             $hinh = $img_path . $image;
                             if (($i == 2) || ($i == 5) || ($i == 8) || ($i == 11)) {
                                 $mr = "";

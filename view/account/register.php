@@ -30,49 +30,54 @@
                 <img src="./assets/client/img/img-01.png" alt="IMG">
             </div>
 
-            <form class="login100-form validate-form" action="index.php?act=register" method="post">
+            <form class="login100-form validate-form" onsubmit="return validateForm();" enctype="multipart/form-data" action="index.php?act=register" method="post">
 					<span class="login100-form-title">
 						Đăng Kí
 					</span>
 
                 <div class="wrap-input100 validate-input">
-                    <input class="input100" type="text" name="username" placeholder="Tên tài khoản">
+                    <input class="input100" type="text" name="username" id="username" placeholder="Tên tài khoản">
                     <span class="focus-input100"></span>
                     <span class="symbol-input100">
 							<i class="fa fa-user" aria-hidden="true"></i>
 						</span>
+                    <p style="color: red;" id="user"></p>
                 </div>
 
                 <div class="wrap-input100 validate-input">
-                    <input class="input100" type="text" name="fullName" placeholder="Họ và tên">
+                    <input class="input100" type="text" name="fullname" id="fullname" placeholder="Họ và tên">
                     <span class="focus-input100"></span>
                     <span class="symbol-input100">
 							<i class="fa fa-user" aria-hidden="true"></i>
 						</span>
+                    <p style="color: red;" id="fullname1"></p>
                 </div>
 
-                <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
-                    <input class="input100" type="email" name="email" placeholder="Email">
+                <div class="wrap-input100 validate-input" data-validate = "Email cần có định dạng: ex@abc.xyz">
+                    <input class="input100" type="email" name="email" id="email" placeholder="Email">
                     <span class="focus-input100"></span>
                     <span class="symbol-input100">
 							<i class="fa fa-envelope" aria-hidden="true"></i>
 						</span>
+                    <p style="color: red;" id="email1"></p>
                 </div>
 
                 <div class="wrap-input100 validate-input">
-                    <input class="input100" type="text" name="phone" placeholder="Số điện thoại">
+                    <input class="input100" type="text" name="phone" id="phone" placeholder="Số điện thoại">
                     <span class="focus-input100"></span>
                     <span class="symbol-input100">
 							<i class="fa fa-phone" aria-hidden="true"></i>
 						</span>
+                    <p style="color: red;" id="phone1"></p>
                 </div>
 
                 <div class="wrap-input100 validate-input" data-validate = "Yêu cầu nhập mật khẩu">
-                    <input class="input100" type="password" name="pass" placeholder="Mật Khẩu">
+                    <input class="input100" type="password" name="pass" id="pass" placeholder="Mật Khẩu">
                     <span class="focus-input100"></span>
                     <span class="symbol-input100">
 							<i class="fa fa-lock" aria-hidden="true"></i>
 						</span>
+                    <p style="color: red;" id="pass1"></p>
                 </div>
 
 
@@ -110,6 +115,57 @@
     $('.js-tilt').tilt({
         scale: 1.1
     })
+</script>
+<script>
+    function validateForm() {
+        let user = document.getElementById("username").value;
+        let fullname = document.getElementById("fullname").value;
+        let email = document.getElementById("email").value;
+        let phone = document.getElementById("phone").value;
+        let pass = document.getElementById("pass").value;
+        let text;
+        if (user == "") {
+            text = "Tên người dùng không được để trống";
+            document.getElementById("user").innerHTML = text;
+            return false;
+        } else {
+            text = "";
+            document.getElementById("user").innerHTML = text;
+        }
+        if (pass == "") {
+            text = "Mật khẩu không được để trống";
+            document.getElementById("pass1").innerHTML = text;
+            return false;
+        } else {
+            text = "";
+            document.getElementById("pass1").innerHTML = text;
+        }
+
+        if (fullname == "") {
+            text = "Mật khẩu không được để trống";
+            document.getElementById("fullname1").innerHTML = text;
+            return false;
+        } else {
+            text = "";
+            document.getElementById("fullname1").innerHTML = text;
+        }
+        if (email == "") {
+            text = "Mật khẩu không được để trống";
+            document.getElementById("email1").innerHTML = text;
+            return false;
+        } else {
+            text = "";
+            document.getElementById("email1").innerHTML = text;
+        }
+        if (phone == "") {
+            text = "Mật khẩu không được để trống";
+            document.getElementById("phone1").innerHTML = text;
+            return false;
+        } else {
+            text = "";
+            document.getElementById("phone1").innerHTML = text;
+        }
+    }
 </script>
 <!--===============================================================================================-->
 <script src="./assets/client/js/mainlogin.js"></script>

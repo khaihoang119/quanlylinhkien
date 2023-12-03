@@ -30,31 +30,31 @@
 					<img src="./assets/client/img/img-01.png" alt="IMG">
 				</div>
 
-				<form class="login100-form validate-form">
+				<form class="login100-form validate-form" action="index.php?act=login" method="post" onsubmit="return validateForm();" enctype="multipart/form-data">
 					<span class="login100-form-title">
 						Đăng Nhập
 					</span>
 
 					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
-						<input class="input100" type="text" name="email" placeholder="Email">
+						<input class="input100" type="text" name="username" id="username" placeholder="Tên tài khoản">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-envelope" aria-hidden="true"></i>
 						</span>
+                        <p style="color: red;" id="user"></p>
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate = "Yêu cầu nhập mật khẩu">
-						<input class="input100" type="password" name="pass" placeholder="Mật Khẩu">
+						<input class="input100" type="password" id="password" name="pass" placeholder="Mật Khẩu">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-lock" aria-hidden="true"></i>
 						</span>
+                        <p style="color: red;" id="pass"></p>
 					</div>
 					
 					<div class="container-login100-form-btn">
-						<button class="login100-form-btn">
-							Đăng Nhập
-						</button>
+                        <input class="login100-form-btn" type="submit" value="Đăng nhập" name="login">
 					</div>
 
 					<div class="text-center p-t-12">
@@ -72,6 +72,13 @@
 						</a>
 					</div>
 				</form>
+
+                <?php
+                if(isset($thongbao)&&($thongbao!="")){
+                echo "<script type='text/javascript'>alert('$thongbao');</script>";
+                }
+
+                ?>
 			</div>
 		</div>
 	</div>
@@ -89,6 +96,30 @@
         $('.js-tilt').tilt({
             scale: 1.1
         })
+    </script>
+    <script>
+        function validateForm() {
+            let user = document.getElementById("username").value;
+            let pass = document.getElementById("password").value;
+            let text;
+            if (user == "") {
+                text = "Tên người dùng không được để trống";
+                document.getElementById("user").innerHTML = text;
+                return false;
+            } else {
+                text = "";
+                document.getElementById("user").innerHTML = text;
+            }
+
+            if (pass == "") {
+                text = "Mật khẩu không được để trống";
+                document.getElementById("pass").innerHTML = text;
+                return false;
+            } else {
+                text = "";
+                document.getElementById("pass").innerHTML = text;
+            }
+        }
     </script>
     <!--===============================================================================================-->
     <script src="js/main.js"></script>

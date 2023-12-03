@@ -21,6 +21,8 @@
         ?>
         <?php
         $img = $img_path .$image;
+        $formatNum = number_format($productPrice);
+
         echo'
          <div class="col-lg-6">
                           <div id="carouselExampleIndicators" class="carousel slide">
@@ -55,13 +57,18 @@
                     <div class="col-lg-6">
                                 <div class="portfolio-info">
                                     <h2>' . $productName . '</h2>
-                                    <h3>'. $productPrice .' đ</h3>
+                                    <h3>'. $formatNum .' đ</h3>
                                   <h3>Thông tin sản phẩm</h3>
                                   <ul>
                                     <li>'. $shortDes .'</li>
                                   </ul>
-                                    <form action="index.php?act=product" method="post">
-                                        <input type="submit" name="" class="btn btn-primary" value="Thêm vào giỏ hàng">
+                                    <form action="index.php?act=addtocart" method="post">
+                                        <input type="hidden" name="image" value="'.$img .'">
+                                        <input type="hidden" name="name" value="'.$productName .'">
+                                        <input type="hidden" name="price" value="'.$productPrice .'">
+                                        <input type="hidden" name="id" value="'. $productID .'">
+                                        <input type="hidden" name="quantity" value="1">
+                                        <input type="submit" name="addtocart" class="btn btn-primary" value="Thêm vào giỏ hàng">
                                     </form>
                                 </div>
                   ';

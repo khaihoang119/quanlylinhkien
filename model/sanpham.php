@@ -15,7 +15,7 @@ function loadall_sanpham($kyw = "", $iddm = 0)
 {
     $sql = "select * from products where 1";
     if ($kyw != "") {
-        $sql .= " and name like '%" . $kyw . "%'";
+        $sql .= " and productName like '%" . $kyw . "%'";
     }
     if ($iddm > 0) {
         $sql .= " and categoryID = '" . $iddm . "'";
