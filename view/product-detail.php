@@ -6,7 +6,7 @@
       <div class="container">
         <ol>
           <li><a href="index.php">Home</a></li>
-          <li>Chi tiết sản phẩm</li>
+          <li>Sản phẩm</li>
         </ol>
         <h2>Chi tiết sản phẩm</h2>
       </div>

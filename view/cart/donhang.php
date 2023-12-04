@@ -4,39 +4,33 @@
         <div class="container mt-2">
             <ol>
                 <li><a href="index.php">Trang Chủ</a></li>
-                <li><a href="index.php?act=cart">Giỏ hàng</a></li>
+                <li><a href="index.php?act=cart">Đơn hàng</a></li>
             </ol>
         </div>
 
     </section><!-- End Breadcrumbs -->
     <section class="inner-page">
         <div class="container">
-            <div class="p-0">
-                <ol>
-                    <li style="list-style: none"><a href="index.php?act=product">Mua thêm sản phẩm khác</a></li>
-                </ol>
-            </div>
+
 
             <div class="row d-flex justify-content-center my-4">
-
                 <div class="col-md-8">
                     <div class="card mb-4">
-
                         <div class="card-header py-3">
-                            <h5 class="mb-0">Giỏ Hàng</h5>
+                            <h5 class="mb-0"> Đơn Hàng</h5>
                         </div>
                         <div class="card-body">
 
                             <!-- Single item -->
 <!--                            --><?php
-                                if((isset($_SESSION['cart']))&&(count($_SESSION['cart'])>=0)){
+                            $getshowcart= getshowcart($billID);
+                                if((isset($getshowcart))&&(count($getshowcart)>=0)){
                                     $i=0;
                                     $total=0;
 
-                                    foreach ($_SESSION['cart'] as $product){
-                                        $fomartprice= number_format($product[3],0, '.', '.');
-                                        $linkdel = "index.php?act=delcart&ind=" .$i;
-                                        $tt= $product[3] * $product[4];
+                                    foreach ($getshowcart as $product){
+                                        $fomartprice= number_format($product[4],0, '.', '.');
+                                        $tt= $product[4] * $product[6];
                                         $total+=$tt;
                                         $fomartt= number_format($tt,0, '.', '.');
                                             echo'
@@ -45,7 +39,7 @@
                                                         <!-- Image -->
                                                         <div class="bg-image hover-overlay hover-zoom ripple rounded"
                                                              data-mdb-ripple-color="light">
-                                                            <img src="' . $product[1] . '"
+                                                            <img src="' . $product[3] . '"
                                                                  class="w-100" alt=""/>
                                                             <a href="#!">
                                                                 <div class="mask" style="background-color: rgba(251, 251, 251, 0.2)"></div>
@@ -56,32 +50,23 @@
                     
                                                     <div class="col-lg-5 col-md-6 mb-4 mb-lg-0">
                                                         <!-- Data -->
-                                                        <p><strong>'. $product[2] .'</strong></p>
+                                                        <p><strong>'. $product[4] .'</strong></p>
                                                         <p> '.  $fomartprice .' đ</p>
-                                                        <button type="button" class="btn btn-primary btn-sm me-1 mb-2"
-                                                                data-mdb-toggle="tooltip" title="Remove item">
-                                                            <a href="'.$linkdel.'"><i class="fas fa-trash"></i></a>
-                                                        </button>
-                    
                                                         <!-- Data -->
                                                     </div>
                     
                                                     <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
                                                         <!-- Quantity -->
                                                         <div class="d-flex mb-4" style="max-width: 200px ; max-height: 40px">
-                                                            <button class="btn btn-primary px-3 me-2"
-                                                            <i class="fas fa-minus"></i>
-                                                            </button>
+                                                            
                     
                                                             <div class="form-outline">
-                                                                <input id="form1" min="0" name="sl" value="" type="number"
-                                                                       class="form-control"/>
-                                                                <label class="form-label" for="form1">Số lượng '. $product[4] .'</label>
+                                                                
+                                                                       
+                                                                <label class="form-label" for="form1">Số lượng '. $product[6] .'</label>
                                                             </div>
                     
-                                                            <button class="btn btn-primary px-3 ms-2"
-                                                            <i class="fas fa-plus"></i>
-                                                            </button>
+                                                            
                                                         </div>
                                                         <!-- Quantity -->
                     
@@ -132,76 +117,84 @@
                                 </li>
 
                             </ul>
+
+
+                            <a href="index.php?act=bill">
+                                <input type="submit" value="Thanh toán" class="btn btn-primary btn-lg btn-block">
+                            </a>
+
                         </div>
                     </div>
-                
+                </div>
                                     ';
 
                                 }
                                 ?>
-                            <div class="col-mb-4">
-                                <div class="card-header py-3">
-                                    <h5 class="mb-0">Điền thông tin người nhận</h5>
-                                </div>
-                                <div class="card-body">
-                                    <div class="col">
-                                        <form action="index.php?act=pay" method="post" onsubmit="return validateForm();" enctype="multipart/form-data">
-                                            <input type="hidden" value="<?= $total ?>" name="tongdonhang">
-                                            <div class="mb-3">
-                                                <label for="name" class="form-label">Tên người nhận</label>
-                                                <input type="text" class="form-control" id="name" name="name" aria-describedby="emailHelp">
-                                                <p style="color: red;" id="name1"></p>
-                                            </div>
-                                            <div class="mb-3">
-                                                <label for="address" class="form-label">Địa chỉ</label>
-                                                <input type="text" class="form-control" name="address" id="address">
-                                                <p style="color: red;" id="address1"></p>
+                            <div class="container">
+                                <div class="row d-flex justify-content-center my-4">
+                                    <div class="col-mb-9">
+                                        <div class="card-header py-3">
+                                            <h5 class="mb-0">ID ĐƠN HÀNG: <?= $billID ?></h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="row">
+                                            <div class="">
+
+                                                    <input type="hidden" value="<?= $total ?>" name="tongdonhang">
+                                                    <div class="mb-3">
+                                                        <label for="name" class="form-label">Tên người nhận</label>
+                                                        <input type="text" class="form-control" id="name" name="name" value="<?= $name ?>" aria-describedby="emailHelp" disabled>
+                                                        <p style="color: red;" id="name1"></p>
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label for="address" class="form-label">Địa chỉ</label>
+                                                        <input type="text" class="form-control" name="address" id="address" value="<?= $address ?>" disabled>
+                                                        <p style="color: red;" id="address1"></p>
+                                                    </div>
+
+                                                    <div class="mb-3">
+                                                        <label for="email" class="form-label">Email</label>
+                                                        <input type="email" class="form-control" name="email" id="email" value="<?= $email ?>" disabled>
+                                                        <p style="color: red;" id="email1"></p>
+                                                    </div>
+
+                                                    <div class="mb-3">
+                                                        <label for="phone" class="form-label">Số điện thoại người nhận hàng</label>
+                                                        <input type="text" class="form-control" name="phone" id="phone" value="<?= $phone ?>" disabled>
+                                                        <p style="color: red;" id="phone1"></p>
+                                                    </div>
+
+                                                    <div class="mb-3">
+                                                        <div class="form-check form-check-inline">
+                                                            <input class="form-check-input" type="hidden" name="pttt" id="inlineRadio1" value="1">
+                                                            <label class="form-check-label" for="inlineRadio1">Thanh toán khi nhận hàng</label>
+                                                        </div>
+                                                        <div class="form-check form-check-inline">
+                                                            <input class="form-check-input" type="hidden" type="radio" name="pttt" id="inlineRadio2" value="2">
+                                                            <label class="form-check-label" for="inlineRadio2">Chuyển Khoảng</label>
+                                                        </div>
+                                                        <div class="form-check form-check-inline">
+                                                            <input class="form-check-input" type="hidden" type="radio" name="pttt" id="inlineRadio3" value="3" >
+                                                            <label class="form-check-label"  for="inlineRadio3">Thanh toán bằng ví điện tử</label>
+                                                        </div>
+                                                    </div>
+
                                             </div>
 
-                                            <div class="mb-3">
-                                                <label for="email" class="form-label">Email</label>
-                                                <input type="email" class="form-control" name="email" id="email">
-                                                <p style="color: red;" id="email1"></p>
                                             </div>
-
-                                            <div class="mb-3">
-                                                <label for="phone" class="form-label">Số điện thoại người nhận hàng</label>
-                                                <input type="text" class="form-control" name="phone" id="phone">
-                                                <p style="color: red;" id="phone1"></p>
-                                            </div>
-                                            <div class="mb-3">
-                                                <label>Phương thức thanh toán</label>
-                                            </div>
-                                            <div class="mb-3">
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="pttt" id="inlineRadio1" value="1" >
-                                                    <label class="form-check-label" for="inlineRadio1">Thanh toán khi nhận hàng</label>
-                                                </div>
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="pttt" id="inlineRadio2" value="2">
-                                                    <label class="form-check-label" for="inlineRadio2">Chuyển Khoảng</label>
-                                                </div>
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input"  type="radio" name="pttt" id="inlineRadio3" value="3" >
-                                                    <label class="form-check-label"  for="inlineRadio3">Thanh toán bằng ví điện tử</label>
-                                                </div>
-                                            </div>
-                                            <input type="submit" class="btn btn-primary" name="pay" value="Đặt Hàng">
-                                        </form>
-
+                                        </div>
                                     </div>
+
+
                                 </div>
+
                             </div>
 
-                        </div>
-                    </div>
 
-
+                <!-- Single item -->
 
             </div>
-
         </div>
-
     </section>
     <script>
         function validateForm() {

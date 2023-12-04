@@ -66,7 +66,7 @@
 
         <div class="p-2 d-flex">
             <div class=" p-2">
-                <a class="text-white" href="index.php?act=addtocart">
+                <a class="text-white" href="index.php?act=cart">
                     <img src="./upload/iconcart.svg" class="" style="width: 25px">
                     Giỏ Hàng
                 </a>

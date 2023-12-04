@@ -8,10 +8,11 @@ include 'model/danhmuc.php';
 include 'model/taikhoan.php';
 include 'model/binhluan.php';
 include 'model/giohang.php';
+
 include 'model/bills.php';
 include 'global.php';
 
-
+if(!isset($_SESSION['cart'])) $_SESSION['cart'] = [];
 
 $spnew = loadall_sanpham();
 $dsdm = loadall_danhmuc();
@@ -101,24 +102,40 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
             session_unset();
             header('location: index.php');
             break;
+
         case 'addtocart':
             if(isset($_POST['addtocart']) && ($_POST['addtocart'])){
-                $id = $_POST['id'];
-                $img = $_POST['image'];
-                $name = $_POST['name'];
-                $price = $_POST['price'];
-                $quantity = $_POST['quantity'];
-                $product = [$id,$img,$name,$price,$quantity];
-                if(!isset($_SESSION['cart'])) $_SESSION['cart'] = array();
-                array_push($_SESSION['cart'],$product);
-                header('location:index.php?act=addtocart');
+                $productID = $_POST['id'];
+                $image = $_POST['image'];
+                $productName = $_POST['name'];
+                $productPrice = $_POST['price'];
+                $quantity = 1;
+                $fg=0;
+                //kiểm tra sản phẩm có tồn tại chưa
+                $i=0;
+                foreach ($_SESSION['cart'] as $product){
+                    if($product[2]===$productName){
+                        $quantitynew= $quantity + $product[4];
+                        $_SESSION['cart'][$i][4] = $quantitynew;
+                        $fg=1;
+                        break;
+                    }$i++;
+                }
+                if($fg==0){
+                $product = array($productID,$image,$productName,$productPrice,$quantity);
+                $_SESSION['cart'][]=$product;
+                }
+                header('location: index.php?act=cart');
             }
+
+            break;
+        case 'cart':
             include "view/cart/cart.php";
             break;
         case 'delcart':
             if(isset($_GET['ind']) && ($_GET['ind']>=0)){
                 array_splice($_SESSION['cart'],$_GET['ind'],1);
-                header('location: index.php?act=addtocart');
+                header('location: index.php?act=cart');
             }
             break;
         case 'bill':
@@ -127,17 +144,27 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
 
         case 'pay':
                 if((isset($_POST['pay']))&&($_POST['pay'])){
-                    if(isset($_SESSION['username'])){$userID = $_SESSION['username']['userID'];}
-                    else $userID=0;
                     $tongdonhang = $_POST['tongdonhang'];
                     $name = $_POST['name'];
                     $address = $_POST['address'];
                     $email = $_POST ['email'];
                     $phone = $_POST ['phone'];
-
-                    $billID = taodonhang($userID,$tongdonhang,$name, $address, $email, $phone);
+                    $day = date('h:i:sa d/m/y');
+                    $pttt = $_POST['pttt'];
+                    $maDH = rand(0,9999);
+                    $billID = insert_bill($maDH,$tongdonhang,$name, $address, $email, $phone, $day,$pttt);
+                    if(isset($_SESSION['cart'])&& (count($_SESSION['cart'])>0)){
+                        foreach ($_SESSION['cart'] as $product){
+                            insert_cart($product[0],$product[1],$product[2],$product[3],$product[4],$product[5],$product[6],$billID);
+                        }
+                    }
+                    // Xóa session cart
+                    $_SESSION['cart'] = [];
         }
-                include "";
+                include "view/cart/donhang.php";
+            break;
+        case 'donhang':
+
             break;
         default:
             include "view/home.php";
