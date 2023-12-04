@@ -155,7 +155,7 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
                     $billID = insert_bill($maDH,$tongdonhang,$name, $address, $email, $phone, $day,$pttt);
                     if(isset($_SESSION['cart'])&& (count($_SESSION['cart'])>0)){
                         foreach ($_SESSION['cart'] as $product){
-                            insert_cart($product[0],$product[1],$product[2],$product[3],$product[4],$product[5],$product[6],$billID);
+                            insert_cart($product[0],$product[1],$product[2],$product[3],$product[4],$billID);
                         }
                     }
                     // Xóa session cart

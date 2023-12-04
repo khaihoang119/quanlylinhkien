@@ -69,19 +69,14 @@
                                                     <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
                                                         <!-- Quantity -->
                                                         <div class="d-flex mb-4" style="max-width: 200px ; max-height: 40px">
-                                                            <button class="btn btn-primary px-3 me-2"
-                                                            <i class="fas fa-minus"></i>
-                                                            </button>
+                                                            
                     
                                                             <div class="form-outline">
-                                                                <input id="form1" min="0" name="sl" value="" type="number"
-                                                                       class="form-control"/>
-                                                                <label class="form-label" for="form1">Số lượng '. $product[4] .'</label>
+                                                                <input id="form1" min="0" name="sl" value="'. $product[4] .'" type="number"
+                                                                       class="form-control" disabled/>
                                                             </div>
                     
-                                                            <button class="btn btn-primary px-3 ms-2"
-                                                            <i class="fas fa-plus"></i>
-                                                            </button>
+                                                            
                                                         </div>
                                                         <!-- Quantity -->
                     
@@ -172,19 +167,20 @@
                                             <div class="mb-3">
                                                 <label>Phương thức thanh toán</label>
                                             </div>
-                                            <div class="mb-3">
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="pttt" id="inlineRadio1" value="1" >
+                                            <div class="mb-3 p-3">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="pttt" id="flexRadioDefault1 " value="1" checked>
                                                     <label class="form-check-label" for="inlineRadio1">Thanh toán khi nhận hàng</label>
                                                 </div>
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="pttt" id="inlineRadio2" value="2">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="pttt" id="flexRadioDefault2" value="2" >
                                                     <label class="form-check-label" for="inlineRadio2">Chuyển Khoảng</label>
                                                 </div>
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input"  type="radio" name="pttt" id="inlineRadio3" value="3" >
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="pttt" id="flexRadioDefault2" value="3">
                                                     <label class="form-check-label"  for="inlineRadio3">Thanh toán bằng ví điện tử</label>
                                                 </div>
+
                                             </div>
                                             <input type="submit" class="btn btn-primary" name="pay" value="Đặt Hàng">
                                         </form>
