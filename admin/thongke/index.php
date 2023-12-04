@@ -1,5 +1,4 @@
-<!-- Page wrapper  -->
-<!-- ============================================================== -->
+
 <div class="page-wrapper">
     <!-- ============================================================== -->
     <!-- Bread crumb and right sidebar toggle -->
@@ -7,12 +6,12 @@
     <div class="page-breadcrumb">
         <div class="row">
             <div class="col-12 d-flex no-block align-items-center">
-                <h4 class="page-title">QUẢN LÝ THỐNG KÊ</h4>
+                <h4 class="page-title">QUẢN LÝ LOẠI SẢN PHẨM</h4>
                 <div class="ms-auto text-end">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Danh sách thống kê</li>
+                            <li class="breadcrumb-item active" aria-current="page">Thêm loại sản phẩm</li>
                         </ol>
                     </nav>
                 </div>
@@ -30,62 +29,58 @@
         <!-- Start Page Content -->
         <!-- ============================================================== -->
         <div class="row">
-            <script>
-                window.onload = function () {
+            <div class="col-md-12">
+                <div class="card">
 
-                    var limit = 50000;
-                    var y = 100;
-                    var data = [];
-                    var dataSeries = {type: "line"};
-                    var dataPoints = [];
-                    for (var i = 0; i < limit; i += 1) {
-                        y += Math.round(Math.random() * 10 - 5);
-                        dataPoints.push({
-                            x: i,
-                            y: y
-                        });
-                    }
-                    dataSeries.dataPoints = dataPoints;
-                    data.push(dataSeries);
+                    <form class="form-horizontal" action="" onsubmit="return validateForm();"
+                          method="POST">
+                        <div class="card-body">
+                            <h4>Xem biểu đồ thống kê sản phẩm</h4>
+                        </div>
+                        <table class="table table-striped table-bordered">
+                            <tr>
+                                <th>MÃ DANH MỤC</th>
+                                <th>TÊN DANH MỤC</th>
+                                <th>SỐ LƯỢNG</th>
+                                <th>GIÁ CAO NHẤT</th>
+                                <th>GIÁ THẤP NHẤT</th>
+                                <th>GIÁ TRUNG BÌNH</th>
+                            </tr>
+                            <?php
+                            foreach ($listthongke as $thongke) {
+                                extract($thongke);
+                                echo '
+                                        <tr>
+                                            <td>' . $madm . '</td>
+                                            <td>' . $tendm . '</td>
+                                            <td>' . $countsp . '</td>
+                                            <td>' . $maxprice . '</td>
+                                            <td>' . $minprice . '</td>
+                                            <td>' . $avgprice . '</td>
+                                        </tr>
+                                    ';
+                            }
+                            ?>
 
-//Tốt hơn là xây dựng các tùy chọn trước rồi chuyển nó dưới dạng tham số
-                    var options = {
-                        zoomEnabled: true,
-                        animationEnabled: true,
-                        title: {
-                            text: "Danh Sách Thanh Toán"
-                        },
-                        axisY: {
-                            lineThickness: 1
-                        },
-                        data: data  // dữ liệu ngẫu nhiên
-                    };
+                        </table>
+                        <div class="border-top">
+                            <div class="card-body">
+                                <a href="index.php?act=bieudo"><input class="btn btn-primary" type="button"
+                                                                      value="Xem biểu đồ"></a>
+                            </div>
+                        </div>
+                        <?php
+                        if (isset($thongbao) && ($thongbao != "")) {
+                            echo $thongbao;
+                        }
+                        ?>
+                    </form>
+                </div>
 
-                    var chart = new CanvasJS.Chart("chartContainer", options);
-                    var startTime = new Date();
-                    chart.render();
-                    var endTime = new Date();
-                    document.getElementById("timeToRender").innerHTML = "Time to Render: " + (endTime - startTime) + "ms";
+            </div>
 
-                }
-            </script>
-            <style>
-                #timeToRender {
-                    position: absolute;
-                    top: 10px;
-                    font-size: 20px;
-                    font-weight: bold;
-                    background-color: #d85757;
-                    padding: 0px 4px;
-                    color: #ffffff;
-                }
-            </style>
-            </head>
-            <body>
-            <div id="chartContainer" style="height: 300px; width: 100%;"></div>
-
-            <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
         </div>
+
         <!-- ============================================================== -->
         <!-- End PAge Content -->
         <!-- ============================================================== -->
@@ -101,3 +96,14 @@
     <!-- End Container fluid  -->
     <!-- ============================================================== -->
     <!-- ============================================================== -->
+    <script>
+        function validateForm() {
+            let x = document.getElementById("tloai").value;
+            let text;
+            if (x == "") {
+                text = "Tên loại không được để trống";
+                document.getElementById("tenloai").innerHTML = text;
+                return false;
+            }
+        }
+    </script>

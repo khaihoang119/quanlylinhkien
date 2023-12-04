@@ -5,6 +5,7 @@ include "../model/danhmuc.php";
 include "../model/taikhoan.php";
 include "../model/sanpham.php";
 include "../model/binhluan.php";
+include "../model/thongke.php";
 include "header.php";
 
 if (isset($_GET['act'])) {
@@ -193,7 +194,12 @@ if (isset($_GET['act'])) {
             include "cart/index.php";
             break;
         case 'thongke':
+            $listthongke = loadall_thongke();
             include "thongke/index.php";
+            break;
+        case 'bieudo':
+            $listthongke = loadall_thongke();
+            include "thongke/bieudo.php";
             break;
     }
 } else {
