@@ -1,6 +1,6 @@
 <?php
-function insert_cart($cartID,$userID,$productID,$image,$productPrice,$billID){
-    $sql="insert into cart(cartID,userID,productID,image,productPrice,billID) values ('$cartID','$userID','$productID','$image','$productPrice','$billID')";
+function insert_cart($cartID,$userID,$productID,$image,$productPrice,$quantity,$pricetoPay,$billID){
+    $sql="insert into cart(cartID,userID,productID,image,productPrice,quantity,pricetoPay,billID) values ('$cartID','$userID','$productID','$image','$productPrice','$quantity','$pricetoPay','$billID')";
     return pdo_execute($sql);
 }
 function getshowcart($billID){

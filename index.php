@@ -153,9 +153,11 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
                     $pttt = $_POST['pttt'];
                     $maDH = rand(0,9999);
                     $billID = insert_bill($maDH,$tongdonhang,$name, $address, $email, $phone, $day,$pttt);
+                    $_SESSION['billID']=$billID;
                     if(isset($_SESSION['cart'])&& (count($_SESSION['cart'])>0)){
                         foreach ($_SESSION['cart'] as $product){
-                            insert_cart($product[0],$product[1],$product[2],$product[3],$product[4],$billID);
+                            insert_cart($product[0],$product[1],$product[2],$product[3],$product[4],$product[5],$product[6],$billID);
+
                         }
                     }
                     // Xóa session cart
