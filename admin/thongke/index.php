@@ -7,12 +7,12 @@
     <div class="page-breadcrumb">
         <div class="row">
             <div class="col-12 d-flex no-block align-items-center">
-                <h4 class="page-title">QUẢN LÝ BÌNH LUẬN</h4>
+                <h4 class="page-title">QUẢN LÝ THỐNG KÊ</h4>
                 <div class="ms-auto text-end">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Danh sách bình luận</li>
+                            <li class="breadcrumb-item active" aria-current="page">Danh sách thống kê</li>
                         </ol>
                     </nav>
                 </div>
@@ -30,43 +30,61 @@
         <!-- Start Page Content -->
         <!-- ============================================================== -->
         <div class="row">
-            <div class="row frmtitle mb">
-                <h1>THỐNG KÊ SẢN PHẨM THEO LOẠI</h1>
-            </div>
-            <div class="row frmcontent">
+            <script>
+                window.onload = function () {
 
-                <div class="row mb10 frmdsloai">
-                    <table>
-                        <tr>
-                            <th>MÃ DANH MỤC</th>
-                            <th>TÊN DANH MỤC</th>
-                            <th>SỐ LƯỢNG</th>
-                            <th>GIÁ CAO NHẤT</th>
-                            <th>GIÁ THẤP NHẤT</th>
-                            <th>GIÁ TRUNG BÌNH</th>
-                        </tr>
-                        <?php
-                        foreach ($listthongke as $thongke) {
-                            extract($thongke);
-                            echo '
-                                        <tr>
-                                            <td>' . $madm . '</td>
-                                            <td>' . $tendm . '</td>
-                                            <td>' . $countsp . '</td>
-                                            <td>' . $maxprice . '</td>
-                                            <td>' . $minprice . '</td>
-                                            <td>' . $avgprice . '</td>
-                                        </tr>
-                                    ';
-                        }
-                        ?>
+                    var limit = 50000;
+                    var y = 100;
+                    var data = [];
+                    var dataSeries = {type: "line"};
+                    var dataPoints = [];
+                    for (var i = 0; i < limit; i += 1) {
+                        y += Math.round(Math.random() * 10 - 5);
+                        dataPoints.push({
+                            x: i,
+                            y: y
+                        });
+                    }
+                    dataSeries.dataPoints = dataPoints;
+                    data.push(dataSeries);
 
-                    </table>
-                </div>
-                <div class="row mb10" style="text-align: right;">
-                    <a href="index.php?act=bieudo"><input class="mt5" type="button" value="Xem biểu đồ"></a>
-                </div>
-            </div>
+//Tốt hơn là xây dựng các tùy chọn trước rồi chuyển nó dưới dạng tham số
+                    var options = {
+                        zoomEnabled: true,
+                        animationEnabled: true,
+                        title: {
+                            text: "Danh Sách Thanh Toán"
+                        },
+                        axisY: {
+                            lineThickness: 1
+                        },
+                        data: data  // dữ liệu ngẫu nhiên
+                    };
+
+                    var chart = new CanvasJS.Chart("chartContainer", options);
+                    var startTime = new Date();
+                    chart.render();
+                    var endTime = new Date();
+                    document.getElementById("timeToRender").innerHTML = "Time to Render: " + (endTime - startTime) + "ms";
+
+                }
+            </script>
+            <style>
+                #timeToRender {
+                    position: absolute;
+                    top: 10px;
+                    font-size: 20px;
+                    font-weight: bold;
+                    background-color: #d85757;
+                    padding: 0px 4px;
+                    color: #ffffff;
+                }
+            </style>
+            </head>
+            <body>
+            <div id="chartContainer" style="height: 300px; width: 100%;"></div>
+
+            <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
         </div>
         <!-- ============================================================== -->
         <!-- End PAge Content -->

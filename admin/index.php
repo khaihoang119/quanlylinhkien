@@ -192,6 +192,9 @@ if (isset($_GET['act'])) {
         case 'cart':
             include "cart/index.php";
             break;
+        case 'thongke':
+            include "thongke/index.php";
+            break;
     }
 } else {
     include "home.php";
