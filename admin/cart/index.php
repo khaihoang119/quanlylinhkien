@@ -7,12 +7,12 @@
     <div class="page-breadcrumb">
         <div class="row">
             <div class="col-12 d-flex no-block align-items-center">
-                <h4 class="page-title">QUẢN LÝ BÌNH LUẬN</h4>
+                <h4 class="page-title">QUẢN LÝ HOÁ ĐƠN</h4>
                 <div class="ms-auto text-end">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Danh sách bình luận</li>
+                            <li class="breadcrumb-item active" aria-current="page">Danh sách hoá đơn</li>
                         </ol>
                     </nav>
                 </div>
@@ -34,7 +34,7 @@
 
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Danh sách bình luận</h5>
+                        <h5 class="card-title">Danh sách hoá đơn</h5>
                         <div class="table-responsive">
                             <table id="" class="table table-striped table-bordered">
                                 <thead>
@@ -61,7 +61,6 @@
                                     <td></td>
                                     <td></td>
                                     <td></td>
-                                    <td><a class="btn btn-outline-info" href="">Sửa</a></td>
                                     <td><a class="btn btn-outline-danger" href="">Xóa</a></td>
 
                                 </tr>
