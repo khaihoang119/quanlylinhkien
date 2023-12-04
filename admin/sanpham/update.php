@@ -16,7 +16,7 @@ if (is_file($hinhpath)) {
     <div class="page-breadcrumb">
         <div class="row">
             <div class="col-12 d-flex no-block align-items-center">
-                <h4 class="page-title">SỬA SẢN PHẨM</h4>
+                <h4 class="page-title">CẬP NHẬT SẢN PHẨM</h4>
                 <div class="ms-auto text-end">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
@@ -45,7 +45,7 @@ if (is_file($hinhpath)) {
                     <form class="form-horizontal" action="index.php?act=updatesp" method="post"
                           onsubmit="return validateForm();" enctype="multipart/form-data">
                         <div class="card-body">
-                            <h4 class="card-title">Sửa sản phẩm</h4>
+                            <h4 class="card-title">Cập Nhật sản phẩm</h4>
                             <div class="form-group row">
                                 <label class="col-sm-3 text-end control-label col-form-label">Loại sản phẩm</label>
                                 <div class="col-md-9">
@@ -102,7 +102,7 @@ if (is_file($hinhpath)) {
                                 <div class="col-sm-9">
                                     <textarea class="form-control" id="motadai" name="motadai"
                                               require><?= $longDes ?></textarea>
-                                    <p style="color: red;" id="motandai-loi"></p>
+                                    <p style="color: red;" id="motadai-loi"></p>
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -152,9 +152,9 @@ if (is_file($hinhpath)) {
         function validateForm() {
             let tensp = document.getElementById("tensp").value;
             let giasp = document.getElementById("giasp").value;
-            let photo = document.getElementById("photo").value;
-            let motadai = document.getElementById("motangan").value;
+            let hinh = document.getElementById("hinh").value;
             let motadai = document.getElementById("motadai").value;
+            let motangan = document.getElementById("motangan").value;
             let text;
             if (tensp == "") {
                 text = "Tên sản phẩm không được để trống";
@@ -173,8 +173,7 @@ if (is_file($hinhpath)) {
                 text = "";
                 document.getElementById("giasanpham").innerHTML = text;
             }
-
-            if (photo == "") {
+            if (hinh == "") {
                 text = "Hình sản phẩm không được để trống";
                 document.getElementById("photo-loi").innerHTML = text;
                 return false;
@@ -185,13 +184,19 @@ if (is_file($hinhpath)) {
 
             if (motadai == "") {
                 text = "Mô tả sản phẩm không được để trống";
-                document.getElementById("motandai-loi").innerHTML = text;
+                document.getElementById("motadai-loi").innerHTML = text;
                 return false;
+            } else {
+                text = "";
+                document.getElementById("motadai-loi").innerHTML = text;
             }
             if (motangan == "") {
                 text = "Mô tả sản phẩm không được để trống";
                 document.getElementById("motangan-loi").innerHTML = text;
                 return false;
+            } else {
+                text = "";
+                document.getElementById("motangan-loi").innerHTML = text;
             }
         }
     </script>

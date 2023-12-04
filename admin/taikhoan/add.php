@@ -61,7 +61,7 @@
                                 <label for="gia" class="col-sm-3 text-end control-label col-form-label">Họ Tên</label>
                                 <div class="col-sm-9">
                                     <input type="text" class="form-control" id="fullname" name="fullname" require>
-                                    <p style="color: red;" id="lastname-err"></p>
+                                    <p style="color: red;" id="fullname-err"></p>
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -73,7 +73,8 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="gia" class="col-sm-3 text-end control-label col-form-label">Chức Vụ</label>
+                                <label for="gia" class="col-sm-3 text-end control-label col-form-label">Chức vụ (1:Admin
+                                    0:Khách)</label>
                                 <div class="col-sm-9">
                                     <input type="number" class="form-control" id="role" name="role" require>
                                     <p style="color: red;" id="role-err"></p>
@@ -81,8 +82,8 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="gia" class="col-sm-3 text-end control-label col-form-label">Trạng
-                                    Thái</label>
+                                <label for="gia" class="col-sm-3 text-end control-label col-form-label">Trạng Thái
+                                    (1:Bình Thường 0:Chặn)</label>
                                 <div class="col-sm-9">
                                     <input type="number" class="form-control" id="status" name="status" require>
                                     <p style="color: red;" id="status-err"></p>
@@ -123,9 +124,9 @@
     <script>
         function validateForm() {
             let tenuser = document.getElementById("tenuser").value;
-            let mkuser = document.getElementById("mkuser").value;
             let emailuser = document.getElementById("emailuser").value;
-            let aduser = document.getElementById("aduser").value;
+            let mkuser = document.getElementById("mkuser").value;
+            let fullname = document.getElementById("fullname").value;
             let phoneuser = document.getElementById("phoneuser").value;
             let role = document.getElementById("role").value;
             let status = document.getElementById("status").value;
@@ -140,17 +141,6 @@
                 text = "";
                 document.getElementById("tenuser-err").innerHTML = text;
             }
-
-            // Mật khẩu
-            if (mkuser == "") {
-                text = "Mật khẩu không được để trống";
-                document.getElementById("mkuser-err").innerHTML = text;
-                return false;
-            } else {
-                text = "";
-                document.getElementById("mkuser-err").innerHTML = text;
-            }
-
             // Email
             if (emailuser == "") {
                 text = "Email không được để trống";
@@ -160,15 +150,23 @@
                 text = "";
                 document.getElementById("emailuser-err").innerHTML = text;
             }
-
-            // Địa chỉ
-            if (aduser == "") {
-                text = "Địa chỉ không được để trống";
-                document.getElementById("aduser-err").innerHTML = text;
+            // Mật khẩu
+            if (mkuser == "") {
+                text = "Mật khẩu không được để trống";
+                document.getElementById("mkuser-err").innerHTML = text;
                 return false;
             } else {
                 text = "";
-                document.getElementById("aduser-err").innerHTML = text;
+                document.getElementById("mkuser-err").innerHTML = text;
+            }
+            // Tên
+            if (fullname == "") {
+                text = "Tên không được để trống";
+                document.getElementById("fullname-err").innerHTML = text;
+                return false;
+            } else {
+                text = "";
+                document.getElementById("fullname-err").innerHTML = text;
             }
 
             // Số điện thoại
@@ -208,3 +206,4 @@
             // }
         }
     </script>
+    

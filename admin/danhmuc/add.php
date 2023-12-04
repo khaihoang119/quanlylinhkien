@@ -40,6 +40,7 @@
                                 <div class="col-sm-9">
                                     <input type="text" class="form-control" id="maloai"
                                            placeholder="" name="maloai" disabled>
+                                    <p style="" id=""></p>
                                 </div>
                             </div>
                             <div class="form-group row">

@@ -1,5 +1,4 @@
-<!-- Page wrapper  -->
-<!-- ============================================================== -->
+
 <div class="page-wrapper">
     <!-- ============================================================== -->
     <!-- Bread crumb and right sidebar toggle -->
@@ -7,12 +6,12 @@
     <div class="page-breadcrumb">
         <div class="row">
             <div class="col-12 d-flex no-block align-items-center">
-                <h4 class="page-title">QUẢN LÝ BÌNH LUẬN</h4>
+                <h4 class="page-title">THỐNG KÊ SẢN PHẨM</h4>
                 <div class="ms-auto text-end">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Danh sách bình luận</li>
+                            <li class="breadcrumb-item active" aria-current="page">Thống kê sản phẩm</li>
                         </ol>
                     </nav>
                 </div>
@@ -30,25 +29,27 @@
         <!-- Start Page Content -->
         <!-- ============================================================== -->
         <div class="row">
-            <div class="row frmtitle mb">
-                <h1>THỐNG KÊ SẢN PHẨM THEO LOẠI</h1>
-            </div>
-            <div class="row frmcontent">
+            <div class="col-md-12">
+                <div class="card">
 
-                <div class="row mb10 frmdsloai">
-                    <table>
-                        <tr>
-                            <th>MÃ DANH MỤC</th>
-                            <th>TÊN DANH MỤC</th>
-                            <th>SỐ LƯỢNG</th>
-                            <th>GIÁ CAO NHẤT</th>
-                            <th>GIÁ THẤP NHẤT</th>
-                            <th>GIÁ TRUNG BÌNH</th>
-                        </tr>
-                        <?php
-                        foreach ($listthongke as $thongke) {
-                            extract($thongke);
-                            echo '
+                    <form class="form-horizontal" action="" onsubmit="return validateForm();"
+                          method="POST">
+                        <div class="card-body">
+                            <h4>Xem biểu đồ thống kê sản phẩm</h4>
+                        </div>
+                        <table class="table table-striped table-bordered">
+                            <tr>
+                                <th>MÃ DANH MỤC</th>
+                                <th>TÊN DANH MỤC</th>
+                                <th>SỐ LƯỢNG</th>
+                                <th>GIÁ CAO NHẤT</th>
+                                <th>GIÁ THẤP NHẤT</th>
+                                <th>GIÁ TRUNG BÌNH</th>
+                            </tr>
+                            <?php
+                            foreach ($listthongke as $thongke) {
+                                extract($thongke);
+                                echo '
                                         <tr>
                                             <td>' . $madm . '</td>
                                             <td>' . $tendm . '</td>
@@ -58,16 +59,28 @@
                                             <td>' . $avgprice . '</td>
                                         </tr>
                                     ';
+                            }
+                            ?>
+
+                        </table>
+                        <div class="border-top">
+                            <div class="card-body">
+                                <a href="index.php?act=bieudo"><input class="btn btn-primary" type="button"
+                                                                      value="Xem biểu đồ"></a>
+                            </div>
+                        </div>
+                        <?php
+                        if (isset($thongbao) && ($thongbao != "")) {
+                            echo $thongbao;
                         }
                         ?>
+                    </form>
+                </div>
 
-                    </table>
-                </div>
-                <div class="row mb10" style="text-align: right;">
-                    <a href="index.php?act=bieudo"><input class="mt5" type="button" value="Xem biểu đồ"></a>
-                </div>
             </div>
+
         </div>
+
         <!-- ============================================================== -->
         <!-- End PAge Content -->
         <!-- ============================================================== -->
@@ -83,3 +96,14 @@
     <!-- End Container fluid  -->
     <!-- ============================================================== -->
     <!-- ============================================================== -->
+    <script>
+        function validateForm() {
+            let x = document.getElementById("tloai").value;
+            let text;
+            if (x == "") {
+                text = "Tên loại không được để trống";
+                document.getElementById("tenloai").innerHTML = text;
+                return false;
+            }
+        }
+    </script>

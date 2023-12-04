@@ -5,6 +5,7 @@ include "../model/danhmuc.php";
 include "../model/taikhoan.php";
 include "../model/sanpham.php";
 include "../model/binhluan.php";
+include "../model/thongke.php";
 include "header.php";
 
 if (isset($_GET['act'])) {
@@ -20,7 +21,7 @@ if (isset($_GET['act'])) {
                 $status = $_POST['trangthai'];
                 insert_danhmuc($tenloai, $status);
                 $thongbao = "Thêm thành công";
-
+                
             }
             include "danhmuc/add.php";
             break;
@@ -48,8 +49,6 @@ if (isset($_GET['act'])) {
             $listdanhmuc = loadall_danhmuc();
             include "danhmuc/index.php";
             break;
-
-
         case 'sanpham':
             if (isset($_POST['listok']) && ($_POST['listok'])) {
                 $kyw = $_POST['kyw'];
@@ -135,8 +134,6 @@ if (isset($_GET['act'])) {
             $listbinhluan = loadall_binhluan(0);
             include "binhluan/index.php";
             break;
-
-
         case 'dskh':
             $listtaikhoan = loadall_taikhoan();
             // $listtaikhoan = loadall_taikhoan("",0);
@@ -145,14 +142,14 @@ if (isset($_GET['act'])) {
 
         case 'addtk':
             if (isset($_POST['themmoi']) && ($_POST['themmoi'])) {
-                $usertk = $_POST['tenuser'];
-                $emailtk = $_POST['emailuser'];
-                $passtk = $_POST['mkuser'];
-                $fullNametk = $_POST['fullname'];
-                $teltk = $_POST['phoneuser'];
+                $user = $_POST['tenuser'];
+                $email = $_POST['emailuser'];
+                $pass = $_POST['mkuser'];
+                $fullName = $_POST['fullname'];
+                $tel = $_POST['phoneuser'];
                 $role = $_POST['role'];
-                $status = $_POST['status'];
-                insert_taikhoan($usertk, $emailtk, $passtk, $fullNametk, $teltk, $role, $status);
+
+                insert_taikhoan($user, $email, $pass, $fullName, $tel, $role);
                 $thongbao = "Thêm thành công";
 
             }
@@ -192,6 +189,17 @@ if (isset($_GET['act'])) {
             }
             $listtaikhoan = loadall_taikhoan();
             include "taikhoan/index.php";
+            break;
+        case 'cart':
+            include "cart/index.php";
+            break;
+        case 'thongke':
+            $listthongke = loadall_thongke();
+            include "thongke/index.php";
+            break;
+        case 'bieudo':
+            $listthongke = loadall_thongke();
+            include "thongke/bieudo.php";
             break;
     }
 } else {

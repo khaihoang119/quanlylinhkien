@@ -1,7 +1,7 @@
 <?php
 function insert_sanpham($tensp, $giasp, $hinh, $motangan, $motadai, $iddm, $status)
 {
-    $sql = "insert into products(productName,productPrice,image,shortDes,longDes,categoryID,status) values('$tensp','$giasp','$hinh','$motangan','$motadai','$iddm','$status')";
+    $sql = "insert into products(productName,productPrice,image,shortDes,longDes,categoryID,status) values('$tensp','$giasp','$hinh','$motangan','$motadai','$iddm','$status')"; 
     pdo_execute($sql);
 }
 

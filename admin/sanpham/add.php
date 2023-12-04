@@ -5,7 +5,7 @@
     <div class="page-breadcrumb">
         <div class="row">
             <div class="col-12 d-flex no-block align-items-center">
-                <h4 class="page-title">QUẢN LÝ SẢN PHẨM</h4>
+                <h4 class="page-title">THÊM SẢN PHẨM</h4>
                 <div class="ms-auto text-end">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
@@ -32,7 +32,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <form class="form-horizontal" action="index.php?act=addsp" method="post"
-                          onsubmit="return validateForm();" enctype="multipart/form-data">
+                          onsubmit="return validateForm()" enctype="multipart/form-data">
                         <div class="card-body">
                             <h4 class="card-title">Thêm sản phẩm</h4>
                             <div class="form-group row">
@@ -71,7 +71,7 @@
                                     dài</label>
                                 <div class="col-sm-9">
                                     <textarea class="form-control" id="motadai" name="motadai" require></textarea>
-                                    <p style="color: red;" id="motandai-loi"></p>
+                                    <p style="color: red;" id="motadai-loi"></p>
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -103,8 +103,9 @@
                         </div>
                         <div class="border-top">
                             <div class="card-body">
-                                <input type="submit" class="btn btn-primary" name="themmoi" value="Thêm Mới"
-                                       onclick="validateForm()"></input>
+                                <input type="submit" class="btn btn-primary" name="themmoi" onclick="validateForm()"
+                                       value="Thêm Mới">
+                                <input type="reset" class="btn btn-primary" value="Nhập Lại"></input>
                             </div>
                         </div>
                         <?php
@@ -135,8 +136,8 @@
             let tensp = document.getElementById("tensp").value;
             let giasp = document.getElementById("giasp").value;
             let photo = document.getElementById("photo").value;
-            let motangan = document.getElementById("motangan").value;
             let motadai = document.getElementById("motadai").value;
+            let motangan = document.getElementById("motangan").value;
             let text;
             if (tensp == "") {
                 text = "Tên sản phẩm không được để trống";
@@ -155,7 +156,6 @@
                 text = "";
                 document.getElementById("giasanpham").innerHTML = text;
             }
-
             if (photo == "") {
                 text = "Hình sản phẩm không được để trống";
                 document.getElementById("photo-loi").innerHTML = text;
@@ -167,13 +167,19 @@
 
             if (motadai == "") {
                 text = "Mô tả sản phẩm không được để trống";
-                document.getElementById("motandai-loi").innerHTML = text;
+                document.getElementById("motadai-loi").innerHTML = text;
                 return false;
+            } else {
+                text = "";
+                document.getElementById("motadai-loi").innerHTML = text;
             }
             if (motangan == "") {
                 text = "Mô tả sản phẩm không được để trống";
                 document.getElementById("motangan-loi").innerHTML = text;
                 return false;
+            } else {
+                text = "";
+                document.getElementById("motangan-loi").innerHTML = text;
             }
         }
     </script>

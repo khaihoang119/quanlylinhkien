@@ -141,7 +141,7 @@
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end user-dd animated" aria-labelledby="navbarDropdown">
 
-                            <a class="dropdown-item" href="dangxuat.php"><i class="fa fa-power-off me-1 ms-1"></i> Đăng
+                            <a class="dropdown-item" href=""><i class="fa fa-power-off me-1 ms-1"></i> Đăng
                                 xuất</a>
                         </ul>
                     </li>
@@ -164,7 +164,8 @@
             <!-- Sidebar navigation-->
             <nav class="sidebar-nav">
                 <ul id="sidebarnav" class="pt-4">
-                    <li class="sidebar-item"><a class="sidebar-link waves-effect waves-dark sidebar-link"
+
+                <li class="sidebar-item"><a class="sidebar-link waves-effect waves-dark sidebar-link"
                                                 href="index.php?act=thongke" aria-expanded="false"><i
                                     class="mdi mdi-view-dashboard"></i><span class="hide-menu">Thống kê</span></a></li>
 
@@ -217,11 +218,12 @@
                                                 href="javascript:void(0)" aria-expanded="false"><i
                                     class="mdi mdi-receipt"></i><span class="hide-menu">Hoá Đơn</span></a>
                         <ul aria-expanded="false" class="collapse  first-level">
-                            <li class="sidebar-item"><a href="index.php?act=listbill" class="sidebar-link"><i
+                            <li class="sidebar-item"><a href="index.php?act=cart" class="sidebar-link"><i
                                             class="mdi mdi-note-outline"></i><span class="hide-menu"> Danh sách
                                         </span></a></li>
                         </ul>
                     </li>
+
                 </ul>
             </nav>
             <!-- End Sidebar navigation -->

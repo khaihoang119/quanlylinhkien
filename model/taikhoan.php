@@ -13,15 +13,15 @@ function loadone_taikhoan($id)
     return $taikhoan;
 }
 
-function insert_taikhoan($user, $email, $pass, $fullName, $tel, $role, $status)
+function insert_taikhoan($user, $email, $pass, $fullName, $tel, $role)
 {
-    $sql = "insert into account(username,email,password,fullName,phoneNumber,role, status) values('$user','$email','$pass','$fullName','$tel','$role','$status')";
+    $sql = "insert into account(username,email,password,fullName,phoneNumber,role) values('$user','$email','$pass','$fullName','$tel','$role')";
     pdo_execute($sql);
 }
 
 function checkuser($user, $pass)
 {
-    $sql = " select * from account where username ='" . $user . "' and password = '" . $pass . "' ";
+    $sql = "select * from account where username ='" . $user . "' and password = '" . $pass . "'";
     $sp = pdo_query_one($sql);
     return $sp;
 }
@@ -35,13 +35,13 @@ function checkemail($email)
 
 function update_taikhoan($id, $user, $pass, $email, $fullName, $tel)
 {
-    $sql = "update account set username = '" . $user . "', password = '" . $pass . "',email = '" . $email . "',fullName = '" . $fullName . "', phoneNumber = '" . $tel . "' where userID =" . $id;
+    $sql = "update account set username = '" . $user . "', password = '" . $pass . "',email = '" . $email . "',fullName = '" . $fullname . "', phoneNumber = '" . $tel . "' where userID =" . $id;
     pdo_execute($sql);
 }
 
 function update_taikhoan_admin($id, $user, $email, $pass, $fullName, $tel, $role, $status)
 {
-    $sql = "update account set username = '" . $user . "', email = '" . $email . "',password = '" . $pass . "',fullName = '" . $fullName . "', phoneNumber = '" . $tel . "', role = '" . $role . "' where userID =" . $id;
+    $sql = "update account set username = '" . $user . "', email = '" . $email . "',password = '" . $pass . "',fullName = '" . $fullName . "', phoneNumber = '" . $tel . "', role = '" . $role . "',status = '" . $status . "' where userID =" . $id;
     pdo_execute($sql);
 }
 
