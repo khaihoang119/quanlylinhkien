@@ -22,13 +22,15 @@
                         <div class="card-body">
 
                             <!-- Single item -->
-<!--                            --><?php
+                          <?php
+
                             $getshowcart= getshowcart($billID);
+                            
                                 if((isset($getshowcart))&&(count($getshowcart)>=0)){
                                     $i=0;
                                     $total=0;
-
                                     foreach ($getshowcart as $product){
+
                                         $fomartprice= number_format($product[4],0, '.', '.');
                                         $tt= $product[4] * $product[6];
                                         $total+=$tt;
@@ -47,29 +49,29 @@
                                                         </div>
                                                         <!-- Image -->
                                                     </div>
-                    
+
                                                     <div class="col-lg-5 col-md-6 mb-4 mb-lg-0">
                                                         <!-- Data -->
                                                         <p><strong>'. $product[4] .'</strong></p>
                                                         <p> '.  $fomartprice .' đ</p>
                                                         <!-- Data -->
                                                     </div>
-                    
+
                                                     <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
                                                         <!-- Quantity -->
                                                         <div class="d-flex mb-4" style="max-width: 200px ; max-height: 40px">
-                                                            
-                    
+
+
                                                             <div class="form-outline">
-                                                                
-                                                                       
+
+
                                                                 <label class="form-label" for="form1">Số lượng '. $product[6] .'</label>
                                                             </div>
-                    
-                                                            
+
+
                                                         </div>
                                                         <!-- Quantity -->
-                    
+
                                                         <!-- Price -->
                                                         <p class="text-start text-md-center">
                                                             <strong> '. $fomartt .'đ</strong>
@@ -88,7 +90,7 @@
                                      </div>
                                     </div>
                                     </div>
-                                
+
                                     ';
                                     echo'
                                         <div class="col-md-4">
@@ -129,7 +131,7 @@
                                     ';
 
                                 }
-                                ?>
+//                                 ?>
                             <div class="container">
                                 <div class="row d-flex justify-content-center my-4">
                                     <div class="col-mb-9">
@@ -139,7 +141,6 @@
                                         <div class="card-body">
                                             <div class="row">
                                             <div class="">
-
                                                     <input type="hidden" value="<?= $total ?>" name="tongdonhang">
                                                     <div class="mb-3">
                                                         <label for="name" class="form-label">Tên người nhận</label>
@@ -166,17 +167,18 @@
 
                                                     <div class="mb-3">
                                                         <div class="form-check form-check-inline">
-                                                            <input class="form-check-input" type="hidden" name="pttt" id="inlineRadio1" value="1">
+                                                            <input class="form-check-input" type="hidden" name="pttt" id="radio" value="1">
                                                             <label class="form-check-label" for="inlineRadio1">Thanh toán khi nhận hàng</label>
                                                         </div>
                                                         <div class="form-check form-check-inline">
-                                                            <input class="form-check-input" type="hidden" type="radio" name="pttt" id="inlineRadio2" value="2">
+                                                            <input class="form-check-input" type="hidden" type="radio" name="pttt" id="radio" value="2">
                                                             <label class="form-check-label" for="inlineRadio2">Chuyển Khoảng</label>
                                                         </div>
                                                         <div class="form-check form-check-inline">
-                                                            <input class="form-check-input" type="hidden" type="radio" name="pttt" id="inlineRadio3" value="3" >
+                                                            <input class="form-check-input" type="hidden" type="radio" name="pttt" id="radio" value="3" >
                                                             <label class="form-check-label"  for="inlineRadio3">Thanh toán bằng ví điện tử</label>
                                                         </div>
+                                                        <p style="color: red;" id="radio1"></p>
                                                     </div>
 
                                             </div>
@@ -196,47 +198,4 @@
             </div>
         </div>
     </section>
-    <script>
-        function validateForm() {
-            let name = document.getElementById("name").value;
-            let address = document.getElementById("address").value;
-            let email = document.getElementById("email").value;
-            let sdt = document.getElementById("phone").value;
-            let text;
-            if (name == "") {
-                text = "Tên người dùng không được để trống";
-                document.getElementById("name1").innerHTML = text;
-                return false;
-            } else {
-                text = "";
-                document.getElementById("name1").innerHTML = text;
-            }
 
-            if (address == "") {
-                text = "Mật khẩu không được để trống";
-                document.getElementById("address1").innerHTML = text;
-                return false;
-            } else {
-                text = "";
-                document.getElementById("address1").innerHTML = text;
-            }
-
-            if (email == "") {
-                text = "Mật khẩu không được để trống";
-                document.getElementById("email1").innerHTML = text;
-                return false;
-            } else {
-                text = "";
-                document.getElementById("email1").innerHTML = text;
-            }
-
-            if (sdt == "") {
-                text = "Mật khẩu không được để trống";
-                document.getElementById("phone1").innerHTML = text;
-                return false;
-            } else {
-                text = "";
-                document.getElementById("phone1").innerHTML = text;
-            }
-        }
-    </script>

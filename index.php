@@ -144,6 +144,7 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
 
         case 'pay':
                 if((isset($_POST['pay']))&&($_POST['pay'])){
+                    
                     $tongdonhang = $_POST['tongdonhang'];
                     $name = $_POST['name'];
                     $address = $_POST['address'];
@@ -155,9 +156,11 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
                     $billID = insert_bill($maDH,$tongdonhang,$name, $address, $email, $phone, $day,$pttt);
                     $_SESSION['billID']=$billID;
                     if(isset($_SESSION['cart'])&& (count($_SESSION['cart'])>0)){
+                       
                         foreach ($_SESSION['cart'] as $product){
+                            echo "<pre>"; 
+                            var_dump($_SESSION['cart'][0]);
                             insert_cart($product[0],$product[1],$product[2],$product[3],$product[4],$product[5],$product[6],$billID);
-
                         }
                     }
                     // Xóa session cart
@@ -166,7 +169,7 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
                 include "view/cart/donhang.php";
             break;
         case 'donhang':
-
+            include "view/cart/donhang.php";
             break;
         default:
             include "view/home.php";

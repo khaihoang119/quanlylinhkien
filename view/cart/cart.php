@@ -41,7 +41,7 @@
                                         $total+=$tt;
                                         $quantity +=$product[4];
                                         $pricetoPay +=$total;
-                                        $fomartt= number_format($total,0, '.', '.');
+                                        $fomartt= number_format($total,2, '.', '.');
                                             echo'
                                                <div class="row">
                                                     <div class="col-lg-3 col-md-12 mb-4 mb-lg-0">
@@ -73,8 +73,9 @@
                                                         <!-- Quantity -->
                                                         <div class="d-flex mb-4" style="max-width: 200px ; max-height: 40px">
                                                             
+                    
                                                             <div class="form-outline">
-                                                                <input id="form1" min="0" name="sl" value="'. $product[4] .'" type="number"
+                                                                <input id="form1" min="0" name="sl" value="'. $quantity .'" type="number"
                                                                        class="form-control" disabled/>
                                                             </div>
                     
@@ -93,9 +94,8 @@
                                             ';
                                             $i++;
 
-                                    }
-                                    $totalfomart= number_format($total,0,'.','.');
-                                    $pricetoPayfomart = number_format($pricetoPay,0,'.','.');
+                                    }$totalfomart= number_format($total,0,'.','.');
+
 
                                     echo'
                                      </div>
@@ -113,11 +113,7 @@
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
                                     Tổng tiền sản phẩm
-                                    <span> '.$pricetoPayfomart.'đ</span>
-                                </li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
-                                    Tổng số lượng sản phẩm
-                                    <span> '.$quantity.'đ</span>
+                                    <span> '.$totalfomart.'đ</span>
                                 </li>
                                 <li class="list-group-item d-flex justify-content-between align-items-center px-0">
                                     Phí vận chuyển
@@ -148,7 +144,7 @@
                                 <div class="card-body">
                                     <div class="col">
                                         <form action="index.php?act=pay" method="post" onsubmit="return validateForm();" enctype="multipart/form-data">
-                                            <input type="hidden" value="<?= $total ?>" name="tongdonhang">
+                                        <input type="text" value="<?= $pricetoPay ?>" name="tongdonhang">
                                             <div class="mb-3">
                                                 <label for="name" class="form-label">Tên người nhận</label>
                                                 <input type="text" class="form-control" id="name" name="name" aria-describedby="emailHelp">
@@ -176,22 +172,20 @@
                                             </div>
                                             <div class="mb-3 p-3">
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="pttt" id="radio" value="1" checked>
+                                                    <input class="form-check-input" type="radio" name="pttt" id="flexRadioDefault1 " value="1" checked>
                                                     <label class="form-check-label" for="inlineRadio1">Thanh toán khi nhận hàng</label>
                                                 </div>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="pttt" id="radio" value="2" >
+                                                    <input class="form-check-input" type="radio" name="pttt" id="flexRadioDefault2" value="2" >
                                                     <label class="form-check-label" for="inlineRadio2">Chuyển Khoảng</label>
                                                 </div>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="pttt" id="radio" value="3">
+                                                    <input class="form-check-input" type="radio" name="pttt" id="flexRadioDefault2" value="3">
                                                     <label class="form-check-label"  for="inlineRadio3">Thanh toán bằng ví điện tử</label>
-                                                    <p style="color:red;" id="radio1"></p>
                                                 </div>
-
-
+                                               
                                             </div>
-                                            <input type="submit" class="btn btn-primary" name="pay" value="Đặt Hàng" onclick="validateForm()">
+                                            <input type="submit" class="btn btn-primary" name="pay" value="Đặt Hàng">
                                         </form>
 
                                     </div>
@@ -214,11 +208,7 @@
             let address = document.getElementById("address").value;
             let email = document.getElementById("email").value;
             let sdt = document.getElementById("phone").value;
-            let radio = document.getElementById("radio").value;
             let text;
-
-
-
             if (name == "") {
                 text = "Tên người dùng không được để trống";
                 document.getElementById("name1").innerHTML = text;
@@ -229,7 +219,7 @@
             }
 
             if (address == "") {
-                text = "Vui lòng nhập địa chỉ của bạn";
+                text = "Mật khẩu không được để trống";
                 document.getElementById("address1").innerHTML = text;
                 return false;
             } else {
@@ -238,7 +228,7 @@
             }
 
             if (email == "") {
-                text = "Email không được để trống";
+                text = "Mật khẩu không được để trống";
                 document.getElementById("email1").innerHTML = text;
                 return false;
             } else {
@@ -247,22 +237,12 @@
             }
 
             if (sdt == "") {
-                text = "Vui lòng nhập số điện thoại của bạn";
+                text = "Mật khẩu không được để trống";
                 document.getElementById("phone1").innerHTML = text;
                 return false;
             } else {
                 text = "";
                 document.getElementById("phone1").innerHTML = text;
             }
-            if (radio == "") {
-                text = "Vui lòng chọn phương thức thanh toán";
-                document.getElementById("radio1").innerHTML = text;
-                return false;
-            } else {
-                text = "";
-                document.getElementById("radio1").innerHTML = text;
-            }
-
-
         }
     </script>
