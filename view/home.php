@@ -41,7 +41,7 @@
                             $hinh = $img_path . $image;
 
                             echo '
-                            <div class="col-4">
+                            <div class="col-4 mt-5">
                                 <div class="card " style="width: 18rem;">
                                         <a href="' . $linksp . '"><img src="' . $hinh . '" class="card-img-top" alt="..."></a>
                                     <div class="card-body ">

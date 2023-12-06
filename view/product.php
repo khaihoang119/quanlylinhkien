@@ -18,11 +18,11 @@
                 <div class="col-md-2">
                     <div class="list-group">
                         <?php
-                            foreach($dsdm as $dm){
-                                extract($dm);
-                                $linkdm ="index.php?act=product&iddm=" .$categoryID;
-                                echo'
-                                <a href="'. $linkdm .'"  class="list-group-item list-group-item-action " aria-current="true">
+                        foreach ($dsdm as $dm) {
+                            extract($dm);
+                            $linkdm = "index.php?act=product&iddm=" . $categoryID;
+                            echo '
+                                <a href="' . $linkdm . '"  class="list-group-item list-group-item-action " aria-current="true">
                                     ' . $name . '
                                 </a>
                                 ';
@@ -31,35 +31,38 @@
 
 
                     </div>
+
                 </div>
                 <div class="col-md-10">
-                    <div class="row g-2">
-                        <!--products-->
-                        <?php
+                    <div class="container text-start " >
+                        <div class="row gy-5">
 
-                        $i = 0;
-                        foreach ($dssp as $sp) {
-                            extract($sp);
-                            $linksp = "index.php?act=product-detail&idsp=" . $productID;
 
-                            $hinh = $img_path . $image;
-
-                            echo '
-                            <div class="col-4">
-                                <div class="card p-3 " style="width: 18rem;">
-                                        <a href="' . $linksp . '"><img src="' . $hinh . '" class="card-img-top" alt="..."></a>
-                                    <div class="card-body ">
-                                        <p class="card-text fw-bold "> <a href= " ' . $linksp . ' " class="text-dark">' . $productName . '</a></p>
-                                        <div class="text-start">
-                                            <p class="card-text">' . $productPrice . ' đ</p>
+                            <!--products-->
+                            <?php
+                            foreach ($dssp as $sp) {
+                                extract($sp);
+                                $linksp = "index.php?act=product-detail&idsp=" . $productID;
+                                $hinh = $img_path . $image;
+                                $productPrice = number_format($productPrice,0,'.','.');
+                                echo '
+                                <div class="col-4 mt-4">
+                                    <div class="card p-2 " style="width: 18rem;">
+                                        <a href="' . $linksp . '"><img src="' . $hinh . '" class="card-img-top"  alt="..."></a>
+                                        <div class="card-body ">
+                                            <p class="card-text fw-bold "> <a href=" ' . $linksp . ' " class="text-dark">' . $productName . '</a></p>
+                                            <div class="text-start">
+                                                <p class="card-text">' . $productPrice . ' đ</p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        ';
-                            $i += 1;
-                        }
-                        ?>
+                                ';        
+                            }
+                            ?>
+
+
+                        </div>
                     </div>
                 </div>
             </div>

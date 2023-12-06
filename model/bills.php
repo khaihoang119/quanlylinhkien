@@ -1,8 +1,8 @@
 <?php
 
-function insert_bill($maDH,$tongdonhang,$name, $address, $email, $phone, $day,$pttt){
-    $sql = "INSERT INTO bills (billID,pricetoPay,bill_name, bill_address,bill_tell,bill_email,orderDate,status) 
-VALUES ('$maDH','$tongdonhang','$name','$address','$phone','$email','$day','$pttt')";
+function insert_bill($userID,$maDH,$total,$name,$address,$email,$phone,$pttt,$orderDate){
+    $sql = "INSERT INTO bills (userID,madh,pricetoPay,bill_name,bill_address, bill_email,bill_tell, status,orderDate) 
+VALUES ('$userID','$maDH','$total','$name','$address','$email','$phone','$pttt','$orderDate')";
     return pdo_execute_return_lastInsertId($sql);
 }
 function loadone_bill($billID){

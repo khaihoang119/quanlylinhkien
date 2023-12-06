@@ -23,6 +23,11 @@
                 <div class="card-header py-3">
                     <h5 class="mb-0">Thanh toán thành công</h5>
                 </div>
+                <?php
+                if(isset($billID) && (is_array($billID))){
+                    extract($billID);
+                }
+                ?>
                 <div class="card-body">
                     <div class="col">
                         <form action="index.php?act=pay" method="post" onsubmit="return validateForm();" enctype="multipart/form-data">

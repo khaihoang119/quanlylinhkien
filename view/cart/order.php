@@ -3,7 +3,7 @@
     <div class="container mt-2">
         <ol>
             <li><a href="index.php">Trang Chủ</a></li>
-            <li><a href="index.php?act=cart">Giỏ hàng</a></li>
+            <li><a href="index.php?act=cart">Đơn Hàng</a></li>
         </ol>
     </div>
 
@@ -11,6 +11,7 @@
 <section class="inner-page">
     <div class="container">
         <div class="p-0">
+            <h3>ID đơn hàng: <?= $billID ?></h3>
             <ol>
                 <li style="list-style: none"><a href="index.php?act=product">Mua thêm sản phẩm khác</a></li>
             </ol>
@@ -22,9 +23,8 @@
                 <div class="card mb-4">
 
                     <div class="card-header py-3">
-                        <h5 class="mb-0">Giỏ Hàng</h5>
+                        <h5 class="mb-0">ĐƠN HÀNG</h5>
                     </div>
-
                     <div class="card-body">
                     
                                 
@@ -56,9 +56,7 @@
                                     <!-- Data -->
                                     <p><strong>'.$item[2].'</strong></p>
                                     <p> '.number_format($item[3],0,'.','.').' đ</p>
-                                    <button type="button" class="btn btn-danger btn-sm me-1 mb-2" data-mdb-toggle="tooltip" title="Remove item">
-                                        <a href="'.$linkdel.'"><i class="fas fa-trash btn-danger"></i></a>
-                                    </button>
+                                    
                                     <!-- Data -->
                                 </div>
     
@@ -132,7 +130,7 @@
                     </div>
                     <div class="card-body">
                         <div class="col">
-                            <form action="index.php?act=pay" method="post" onsubmit="return validateForm();" enctype="multipart/form-data">
+                           
                                 <input type="hidden" value="<?=$total ?>" name="tongdonhang">
                                 <div class="mb-3">
                                     <label for="name" class="form-label">Tên người nhận</label>
@@ -174,8 +172,8 @@
                                     </div>
 
                                 </div>
-                                <input type="submit" class="btn btn-primary" name="pay" value="Đặt Hàng">
-                            </form>
+                                
+                           
 
                         </div>
                     </div>

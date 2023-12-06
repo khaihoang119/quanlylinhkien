@@ -20,9 +20,8 @@
             extract($onesp);
         ?>
         <?php
-        $img = $img_path .$image;
-        $formatNum = number_format($productPrice);
-
+        $onesp['image'] = $img_path .$image;
+       
         echo'
          <div class="col-lg-6">
                           <div id="carouselExampleIndicators" class="carousel slide">
@@ -33,13 +32,13 @@
                               </div>
                               <div class="carousel-inner">
                                   <div class="carousel-item active">
-                                      <img src="' .$img. '" class="d-block w-100" alt="...">
+                                      <img src="' .$onesp['image']. '" class="d-block w-100" alt="...">
                                   </div>
                                   <div class="carousel-item">
-                                      <img src="' .$img. '" class="d-block w-100" alt="...">
+                                      <img src="' .$onesp['image']. '" class="d-block w-100" alt="...">
                                   </div>
                                   <div class="carousel-item">
-                                      <img src="' .$img. '" class="d-block w-100" alt="...">
+                                      <img src="' .$onesp['image']. '" class="d-block w-100" alt="...">
                                   </div>
                               </div>
                               <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -51,41 +50,33 @@
                                   <span class="visually-hidden">Next</span>
                               </button>
                           </div>
-                  </div>
-                  ';
-                  echo'
+                  </div>                  
                     <div class="col-lg-6">
                                 <div class="portfolio-info">
-                                    <h2>' . $productName . '</h2>
-                                    <h3>'. $formatNum .' đ</h3>
+                                    <h2>' . $onesp['productName'] . '</h2>
+                                    <h3>'. number_format($onesp['productPrice'],0,'.','.') .' đ</h3>
                                   <h3>Thông tin sản phẩm</h3>
                                   <ul>
-                                    <li>'. $shortDes .'</li>
+                                    <li>'. $onesp['shortDes'] .'</li>
                                   </ul>
                                     <form action="index.php?act=addtocart" method="post">
-                                        <input type="hidden" name="image" value="'.$img .'">
-                                        <input type="hidden" name="name" value="'.$productName .'">
-                                        <input type="hidden" name="price" value="'.$productPrice .'">
-                                        <input type="hidden" name="id" value="'. $productID .'">
-                                        <input type="hidden" name="quantity" value="1">
+                                        <input type="hidden" name="idsp" value="'.$onesp['productID'] .'">
+                                        <input type="hidden" name="image" value="'.$onesp['image'] .'">
+                                        <input type="hidden" name="namesp" value="'.$onesp['productName'].'">
+                                        <input type="text" name="price" value="'.$onesp['productPrice'].'">
+                                        
                                         <input type="submit" name="addtocart" class="btn btn-primary" value="Thêm vào giỏ hàng">
                                     </form>
-                                </div>
-                  ';
-                  echo'
-                    <div class="portfolio-description">
+                                </div> 
+                                <div class="portfolio-description">
                                     <h2>Đánh giá chi tiết</h2>
                                     <p>
-                                        '. $longDes .'
+                                        '. $onesp['longDes'] .'
                                     </p>
                                    
-                                </div>
-                              
+                                </div> 
                             </div>
-
                           </div>
-
-
                   ';
         ?>
 </div>
