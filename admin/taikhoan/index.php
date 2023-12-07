@@ -66,7 +66,6 @@
                                         <td><?= $phoneNumber ?></td>
                                         <td><?= ($role == 0) ? "Khách hàng" : "Admin" ?></td>
                                         <td><?= ($status == 0) ? "Chặn" : "Bình Thường" ?></td>
-                                        <td></td>
                                         <td><a class="btn btn-outline-info" href="<?= $suatk ?>">Sửa</a></td>
                                         <td><a class="btn btn-outline-danger" href="<?= $xoatk ?>"
                                                onclick="return confirm('Bạn có chắc chắn muốn xóa?')">Xóa</a></td>
