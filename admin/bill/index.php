@@ -34,31 +34,37 @@
 
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Danh sách bình luận</h5>
+                        <h5 class="card-title">Danh sách hoá đơn</h5>
                         <div class="table-responsive">
                             <table id="" class="table table-striped table-bordered">
                                 <thead>
                                 <tr>
-                                    <th>ID</th>
-                                    <th>Khách Hàng</th>
-                                    <th>Ngày Đặt Hàng</th>
-                                    <th>Giá Trị</th>
-                                    <th>Status</th>
+                                    <th>MÃ ĐƠN HÀNG</th>
+                                    <th>KHÁCH HÀNG</th>
+                                    <th>SỐ LƯỢNG HÀNG</th>
+                                    <th>GIÁ TRỊ ĐƠN HÀNG</th>
+                                    <th>NGÀY ĐẶT HÀNG</th>
                                     <th></th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
-                                    <th></th>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td><a class="btn btn-outline-info" href="">Sửa</a></td>
-                                    <td><a class="btn btn-outline-danger" href="">Xóa</a></td>
+                                <?php
+                                foreach ($listbill as $bill) {
+                                    extract($bill);
+                                    $xoabill = "index.php?act=xoabill&id=" . $billID;
+                                    $kh = $bill["bill_name"] . '<br> ' . $bill["bill_email"] . '<br> ' . $bill["bill_address"] . '<br> ' . $bill["bill_tell"];
+                                    $countsp = loadall_cart_count($bill["billID"]); ?>
+                                    <tr>
+                                        <td><input type="checkbox" name="" id=""></td>
+                                        <td><?= $bill_name ?></td>
+                                        <td><?= $userID ?></td>
+                                        <td><?= $pricetoPay ?></td>
+                                        <td><?= $orderDate ?></td>
+                                        <td><a class="btn btn-outline-danger" href="<?= $xoabill ?>"
+                                               onclick="return confirm('Bạn có chắc chắn muốn xóa?')">Xóa</a></td>
 
-                                </tr>
-
+                                    </tr>
+                                <?php } ?>
                                 </tbody>
                             </table>
                         </div>

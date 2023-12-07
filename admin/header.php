@@ -218,7 +218,7 @@
                                                 href="javascript:void(0)" aria-expanded="false"><i
                                     class="mdi mdi-receipt"></i><span class="hide-menu">Hoá Đơn</span></a>
                         <ul aria-expanded="false" class="collapse  first-level">
-                            <li class="sidebar-item"><a href="index.php?act=cart" class="sidebar-link"><i
+                            <li class="sidebar-item"><a href="index.php?act=bill" class="sidebar-link"><i
                                             class="mdi mdi-note-outline"></i><span class="hide-menu"> Danh sách
                                         </span></a></li>
                         </ul>

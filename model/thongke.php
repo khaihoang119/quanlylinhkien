@@ -8,10 +8,5 @@ function loadall_thongke()
     return $listtk;
 }
 
-function delete_bill($id)
-{
-    $sql = "delete from bill where id =" . $id;
-    pdo_execute($sql);
-}
 
 ?>
