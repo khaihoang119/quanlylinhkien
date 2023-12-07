@@ -86,6 +86,7 @@
                     <?php
                     }
                     ?>
+                     <li><a class="dropdown-item" href="index.php?act=mybill">Đơn hàng</a></li>
                     <li><a class="dropdown-item" href="index.php?act=logout">Đăng xuất</a></li>
                 </ul>
             </div>

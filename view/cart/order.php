@@ -26,25 +26,26 @@
                         <h5 class="mb-0">ĐƠN HÀNG</h5>
                     </div>
                     <div class="card-body">
-                    
-                                
+
+
                         <?php
                         // echo "<pre>";
                         // var_dump($_SESSION['cart']);
-                        if ((isset($_SESSION['cart'])) && (count($_SESSION['cart']) > 0)) {
-                            $total=0;
-                            
-                            foreach ($_SESSION['cart'] as $item) {
-                                $i=0;
-                                $linkdel = "index.php?act=delproduct&i=" .$i;
-                                $tt =  $item[3] * $item[4]; 
-                                
-                                echo '
+
+                        if (isset($_SESSION['billID']) && ($_SESSION['billID']) > 0) {
+                            $showcart = showcart($billID);
+                            if ((isset($showcart)) && (count($showcart) > 0)) {
+                                foreach ($showcart as $item) {
+                                    $i = 0;
+                                    $linkdel = "index.php?act=delproduct&i=" . $i;
+                                    $tt =  $item['pricetoPay'] * $item['quantity'];
+
+                                    echo '
                                 <div class="row">
                                 <div class="col-lg-3 col-md-12 mb-4 mb-lg-0">
                                     <!-- Image -->
                                     <div class="bg-image hover-overlay hover-zoom ripple rounded" data-mdb-ripple-color="light">
-                                        <img src="'.$item[1].'" class="w-100" alt="" />
+                                        <img src="' . $item['image'] . '" class="w-100" alt="" />
                                         <a href="#!">
                                             <div class="mask" style="background-color: rgba(251, 251, 251, 0.2)"></div>
                                         </a>
@@ -54,8 +55,8 @@
     
                                 <div class="col-lg-5 col-md-6 mb-4 mb-lg-0">
                                     <!-- Data -->
-                                    <p><strong>'.$item[2].'</strong></p>
-                                    <p> '.number_format($item[3],0,'.','.').' đ</p>
+                                    <p><strong>' . $item['productName'] . '</strong></p>
+                                    <p> ' . number_format($item['pricetoPay'], 0, '.', '.') . ' đ</p>
                                     
                                     <!-- Data -->
                                 </div>
@@ -64,14 +65,14 @@
                                     <!-- Quantity -->
                                     <div class="d-flex mb-4" style="max-width: 200px ; max-height: 40px">
                                         <div class="form-outline">
-                                            <input id="form1" min="0" name="quantity" value="'.$item[4].'" type="number" class="form-control" disabled />
+                                            <input id="form1" min="0" name="quantity" value="' . $item['quantity'] . '" type="number" class="form-control" disabled />
                                         </div>
                                     </div>
                                     <!-- Quantity -->
     
                                     <!-- Price -->
                                     <p class="text-start text-md-center">
-                                        <strong>'.number_format($tt,0,'.','.').' đ</strong>
+                                        <strong>' . number_format($tt, 0, '.', '.') . ' đ</strong>
                                     </p>
                                     <!-- Price -->
                                 </div>
@@ -79,18 +80,17 @@
                             <hr class="my-4" />
                                     
                                 ';
-                                $total += $tt;
-                            }
-                            
-                            echo '
+                                }
+
+                                echo '
                             
                             </div>
                         </div>
                     </div>
                     
                             ';
-                            
-                            echo'
+
+                                echo '
                             <div class="col-md-4">
                             <div class="card mb-4">
                                 <div class="card-header py-3">
@@ -100,7 +100,7 @@
                                     <ul class="list-group list-group-flush">
                                         <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
                                             Tổng tiền sản phẩm
-                                            <span>'.number_format($total,0,'.','.').' đ</span>
+                                            <span>' . number_format($total, 0, '.', '.') . ' đ</span>
                                         </li>
                                         <li class="list-group-item d-flex justify-content-between align-items-center px-0">
                                             Phí vận chuyển
@@ -119,73 +119,88 @@
                                 </div>
                             </div>
                             ';
+                            } else {
+                                echo ' <div class="row">
+                            <div class="col-lg-3 col-md-12 mb-4 mb-lg-0">
+                                <h3>GIỎ HÀNG TRỐNG</h3>
+                            </div>
+                        </div>
+                        <hr class="my-4" />
+                        </div>
+                            </div>';
+                            }
                         }
                         ?>
 
-            
-
-                <div class="col-mb-4">
-                    <div class="card-header py-3">
-                        <h5 class="mb-0">Điền thông tin người nhận</h5>
-                    </div>
-                    <div class="card-body">
-                        <div class="col">
-                           
-                                <input type="hidden" value="<?=$total ?>" name="tongdonhang">
-                                <div class="mb-3">
-                                    <label for="name" class="form-label">Tên người nhận</label>
-                                    <input type="text" class="form-control" id="name" name="name" aria-describedby="emailHelp">
-                                    <p style="color: red;" id="name1"></p>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="address" class="form-label">Địa chỉ</label>
-                                    <input type="text" class="form-control" name="address" id="address">
-                                    <p style="color: red;" id="address1"></p>
-                                </div>
-
-                                <div class="mb-3">
-                                    <label for="email" class="form-label">Email</label>
-                                    <input type="email" class="form-control" name="email" id="email">
-                                    <p style="color: red;" id="email1"></p>
-                                </div>
-
-                                <div class="mb-3">
-                                    <label for="phone" class="form-label">Số điện thoại người nhận hàng</label>
-                                    <input type="text" class="form-control" name="phone" id="phone">
-                                    <p style="color: red;" id="phone1"></p>
-                                </div>
-                                <div class="mb-3">
-                                    <label>Phương thức thanh toán</label>
-                                </div>
-                                <div class="mb-3 p-3">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="pttt" id="flexRadioDefault1 " value="1" checked>
-                                        <label class="form-check-label" for="inlineRadio1">Thanh toán khi nhận hàng</label>
+                        <div class="col-mb-4">
+                            <?php
+                            if (isset($_SESSION['billID']) && ($_SESSION['billID']) > 0) {
+                                $showbill = showbill($billID);
+                                if (count($showbill) > 0) {
+                            ?>
+                                    <div class="card-header py-3">
+                                        <h5 class="mb-0">Thông tin đặt hàng</h5>
                                     </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="pttt" id="flexRadioDefault2" value="2">
-                                        <label class="form-check-label" for="inlineRadio2">Chuyển Khoảng</label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="pttt" id="flexRadioDefault2" value="3">
-                                        <label class="form-check-label" for="inlineRadio3">Thanh toán bằng ví điện tử</label>
-                                    </div>
+                                    <div class="card-body">
+                                        <div class="col">
+                                        <div class="mb-3">
+                                                <label for="name" class="form-label">Mã đơn hàng: <?= $showbill[0]['madh']; ?></label>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="name" class="form-label">Tên người nhận: <?= $showbill[0]['bill_name']; ?></label>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="address" class="form-label">Địa chỉ người nhận: <?= $showbill[0]['bill_address']; ?></label>
 
-                                </div>
-                                
-                           
+                                            </div>
 
+                                            <div class="mb-3">
+                                                <label for="email" class="form-label">Email: <?= $showbill[0]['bill_email']; ?></label>
+
+                                            </div>
+
+                                            <div class="mb-3">
+                                                <label for="phone" class="form-label">Số điện thoại người nhận hàng: <?= $showbill[0]['bill_tell']; ?></label>
+
+                                            </div>
+                                            <div class="mb-3">
+                                                <label>Phương thức thanh toán: <?= $showbill[0]['status']; ?></label>
+                                            </div>
+                                            <?php
+                                            switch ($showbill[0]['status']) {
+                                                case '1':
+                                                    $mess = "Thanh toán khi nhận hàng";
+                                                    break;
+                                                case '2':
+                                                    $mess = "Chuyển Khoảng";
+                                                    break;
+                                                case '3':
+                                                    $mess = "Thanh toán bằng ví điện tử";
+                                                    break;
+
+                                                default:
+                                                    # code...
+                                                    break;
+                                            }
+                                            ?>
+                                            
+
+
+
+                                        </div>
+                                    </div>
+                            <?php
+                                }
+                            } ?>
                         </div>
+
                     </div>
                 </div>
 
+
+
             </div>
         </div>
-
-
-
-    </div>
-</div>
 </section>
 <script>
     function validateForm() {

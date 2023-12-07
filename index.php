@@ -91,7 +91,6 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
                 $pass = $_POST['pass'];
                 $fullName = $_POST['fullname'];
                 update_taikhoan($id, $user, $pass, $email, $fullName, $tel);
-
                 $_SESSION['username'] = checkuser($user, $pass);
                 $thongbao = "Chúc mừng bạn đã cập nhật thành công !";
                 header('location: index.php?act=edit-account');
@@ -114,7 +113,7 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
                 $fg = 0;
                 $i = 0;
                 foreach ($_SESSION['cart'] as $item) {
-                    if ($item[2] == $namesp) {
+                    if ($item[3] == $namesp) {
                         $newquantity = $quantity + $item[4];
                         $_SESSION['cart'][$i][4] = $newquantity;
                         $fg = 1;
@@ -134,11 +133,13 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
             include "view/cart/cart.php";
             break;
         case 'delproduct':
-            if (isset($_GET['i']) && ($_GET['i'] >= 0)) {
-                array_splice($_SESSION['cart'], $_GET['i'], 1);
-                header('location: index.php?act=cart');
+            if (isset($_GET['id']) && ($_GET['id'] >= 0)) {
+                array_splice($_SESSION['cart'], $_GET['id'], 1);
+                
+            }else{
+                $_SESSION['cart'] = []; 
             }
-
+            header('location: index.php?act=cart');
             break;
         case 'bill':
             include "view/cart/bill.php";
@@ -150,69 +151,46 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
                 }
                 else $userID=0;   
                 //lấy dữ liệu từ form
-                $total=$_POST['tongdonhang'];
+                $total=tongdonhang();
                 $name=$_POST['name'];
                 $address=$_POST['address'];
                 $email=$_POST['email'];
                 $phone=$_POST['phone'];
                 $pttt=$_POST['pttt'];
-                
                 //mã đơn hàng random
                 $maDH= rand(0,99999);
                 $orderDate = date('h:i:sa d/m/Y');
                 //tạo đơn hàng
                 //$item = array($idsp,$image,$pricesp,$namesp,$quantity);
                 $billID=insert_bill($userID,$maDH,$total,$name,$address,$email,$phone,$pttt,$orderDate);
+                $_SESSION['billID']=$billID;
                 if(isset($_SESSION['cart'])&&(count($_SESSION['cart'])>0)){
                     foreach ($_SESSION['cart'] as $item) {
-                        echo "<pre>";
-                        var_dump($_SESSION['cart'][0]);
-                        insert_cart($billID,$item[0],$item[1],$item[3],$item[2],$item[4]);
+                        // echo "<pre>";
+                        // var_dump($_SESSION['cart'][0]);
+                        insert_cart($billID,$item[0],$item[1],$item[2],$item[3],$item[4]);
                     }
+                    unset($_SESSION['cart']);
                 }
+               
+                
 
             }
-            include 'view/cart/order.php';
-            break;
-            //         case 'pay':
-            //                 if((isset($_POST['pay']))&&($_POST['pay'])){
-            //                     if(isset($_SESSION['username'])) {$userID = $_SESSION['username']['userID'];
-            //                     echo "<pre>";
-            //                             var_dump($_SESSION['username']);
-            //                     }
-            //                     else $userID=0;
-
-            //                     $tongdonhang = $_POST['tongdonhang'];
-            //                     $name = $_POST['name'];
-            //                     $address = $_POST['address'];
-            //                     $email = $_POST ['email'];
-            //                     $phone = $_POST ['phone'];
-            //                     $day = date('h:i:sa d/m/y');
-            //                     $pttt = $_POST['pttt'];
-            //                     $maDH = rand(0,9999);
-
-            //                     $billID = insert_bill($maDH,$userID,$tongdonhang,$name, $address, $email, $phone, $day,$pttt);
-            //                     $_SESSION['billID']=$billID;
-            //                     if(isset($_SESSION['cart'])&& (count($_SESSION['cart'])>0)){
-            // //                        echo "<pre>";
-            // //                        var_dump($_SESSION['username']);
-
-            //                         foreach ($_SESSION['cart'] as $product){
-            //                             echo "<pre>";
-            //                             var_dump($_SESSION['cart'][0]);
-            //                             insert_cart($_SESSION['username']['userID'],$product[0],$product[1],$product[2],$product[3],$product[4],$product[4],$billID);
-            //                         }
-            //                     }
-
-            //                     // Xóa session cart
-            //                     $_SESSION['cart'] = [];
-            //         }
-            //     $bill = loadone_bill($billID);
-            //         include "view/cart/donhang.php";
-            //     break;
-            // case 'donhang':
-            //     include "view/cart/donhang.php";
-            //     break;
+            case 'guibinhluan':
+                if (isset($_POST['guibinhluan']) && ($_POST['guibinhluan'])) {
+                    $content = $_POST['content'];
+                    $productID = $_POST['productID'];
+                    $userID = $_SESSION['username']['userID'];
+                    $commentDate = date('Y/m/d h:i:s ');
+                    insert_binhluan($userID, $productID, $content, $commentDate);
+                    
+                  }
+                  include "view/home.php";
+            break; 
+            case 'mybill':
+                $mybill = loadall_bill("",$_SESSION['username']['userID']);
+                include "view/cart/mybill.php";
+                break;
         default:
             include "view/home.php";
             break;

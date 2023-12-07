@@ -25,22 +25,23 @@
                         <h5 class="mb-0">Giỏ Hàng</h5>
                     </div>
 
-                    <div class="card-body">
-                    
-                                
+                      
                         <?php
                         // echo "<pre>";
                         // var_dump($_SESSION['cart']);
                         if ((isset($_SESSION['cart'])) && (count($_SESSION['cart']) > 0)) {
                             $total=0;
                             
-                            foreach ($_SESSION['cart'] as $item) {
-                                $i=0;
-                                $linkdel = "index.php?act=delproduct&i=" .$i;
-                                $tt =  $item[3] * $item[4]; 
-                                
+                            echo'
+                            <div class="card-body">
+                    
+                    <div class="row">  
+                            ';
+                            $i=0;
+                            foreach ($_SESSION['cart'] as $item) {   
+                                $tt =  $item[2] * $item[4]; 
                                 echo '
-                                <div class="row">
+                               
                                 <div class="col-lg-3 col-md-12 mb-4 mb-lg-0">
                                     <!-- Image -->
                                     <div class="bg-image hover-overlay hover-zoom ripple rounded" data-mdb-ripple-color="light">
@@ -54,10 +55,10 @@
     
                                 <div class="col-lg-5 col-md-6 mb-4 mb-lg-0">
                                     <!-- Data -->
-                                    <p><strong>'.$item[2].'</strong></p>
-                                    <p> '.number_format($item[3],0,'.','.').' đ</p>
+                                    <p><strong>'.$item[3].'</strong></p>
+                                    <p> '.number_format($item[2],0,'.','.').' đ</p>
                                     <button type="button" class="btn btn-danger btn-sm me-1 mb-2" data-mdb-toggle="tooltip" title="Remove item">
-                                        <a href="'.$linkdel.'"><i class="fas fa-trash btn-danger"></i></a>
+                                        <a href="index.php?act=delproduct&id='.$i.'"><i class="fas fa-trash btn-danger"></i></a>
                                     </button>
                                     <!-- Data -->
                                 </div>
@@ -77,15 +78,17 @@
                                     </p>
                                     <!-- Price -->
                                 </div>
-                            </div>
-                            <hr class="my-4" />
+                           
+                           
                                     
                                 ';
                                 $total += $tt;
+                                $i += 1;
                             }
                             
                             echo '
-                            
+                            </div>
+                            <hr class="my-4" />
                             </div>
                         </div>
                     </div>
@@ -120,11 +123,22 @@
                                     </ul>
                                 </div>
                             </div>
+                            </div>
+                            
+                            ';
+                        }else{
+                            echo'
+                                <div class="card-body">
+                                    <h4>Giỏ hàng chưa có sản phẩm nào, vui lòng thêm sản phẩm!</h4>
+                                </div>
+                                
                             ';
                         }
+                        
                         ?>
 
-            
+                </div>
+                
 
                 <div class="col-mb-4">
                     <div class="card-header py-3">
@@ -133,7 +147,7 @@
                     <div class="card-body">
                         <div class="col">
                             <form action="index.php?act=pay" method="post" onsubmit="return validateForm();" enctype="multipart/form-data">
-                                <input type="hidden" value="<?=$total ?>" name="tongdonhang">
+                               
                                 <div class="mb-3">
                                     <label for="name" class="form-label">Tên người nhận</label>
                                     <input type="text" class="form-control" id="name" name="name" aria-describedby="emailHelp">
