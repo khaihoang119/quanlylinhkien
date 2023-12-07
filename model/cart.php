@@ -53,4 +53,26 @@ function delete_bill($id)
     pdo_execute($sql);
 }
 
+function get_ttdh($n)
+{
+    switch ($n) {
+        case '0':
+            $tt = "Đơn hàng mới";
+            break;
+        case '1':
+            $tt = "Đang xử lý";
+            break;
+        case '2':
+            $tt = "Đang giao hàng";
+            break;
+        case '3':
+            $tt = "Hoàn tất";
+            break;
+
+        default:
+            $tt = "Đơn hàng mới";
+            break;
+    }
+    return $tt;
+}
 ?>
