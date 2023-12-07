@@ -246,7 +246,11 @@ if (isset($_GET['act'])) {
             $listthongke = loadall_thongke();
             include "thongke/bieudo.php";
             break;
+        default:
+            include "home.php";
+            break;
     }
+
 } else {
     include "home.php";
 }    

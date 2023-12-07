@@ -6,12 +6,12 @@
     <div class="page-breadcrumb">
         <div class="row">
             <div class="col-12 d-flex no-block align-items-center">
-                <h4 class="page-title">THỐNG KÊ SẢN PHẨM</h4>
+                <h4 class="page-title">THỐNG KÊ</h4>
                 <div class="ms-auto text-end">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Thống kê sản phẩm</li>
+                            <li class="breadcrumb-item active" aria-current="page">Thêm loại sản phẩm</li>
                         </ol>
                     </nav>
                 </div>
@@ -32,6 +32,29 @@
             <div class="col-md-12">
                 <div class="card">
 
+                    <form class="form-horizontal" action="" onsubmit="return validateForm();"
+                          method="POST">
+                        <div class="card-body">
+                            <h4>Xem biểu đồ thống kê sản phẩm</h4>
+                        </div>
+                        <table class="table table-striped table-bordered">
+                            <tr>
+                                <th>Sản Phẩm</th>
+                                <th>Loại Sản Phẩm</th>
+                                <th>Bình Luận</th>
+                                <th>Tài Khoản</th>
+                                <th>Đơn Hàng</th>
+                            </tr>
+
+                            <tr>
+                                <td><?php echo thong_ke_hang_hoa() ?></td>
+                                <td><?php echo thong_ke_loai() ?></td>
+                                <td><?php echo thong_ke_binh_luan() ?></td>
+                                <td><?php echo thong_ke_khach_hang() ?></td>
+                                <td><?php echo thong_ke_don_hang() ?></td>
+                            </tr>
+                        </table>
+                    </form>
                     <form class="form-horizontal" action="" onsubmit="return validateForm();"
                           method="POST">
                         <div class="card-body">
