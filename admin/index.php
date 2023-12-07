@@ -185,6 +185,27 @@ if (isset($_GET['act'])) {
             $listbill = loadall_bill($kyw, 0);
             include "bill/index.php";
             break;
+        case 'suabill':
+            if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+                $bill = loadone_bill($_GET['id']);
+            }
+            include "bill/update.php";
+            break;
+        case 'updatebill':
+            if (isset($_POST['capnhat']) && ($_POST['capnhat'])) {
+                $bill_status = $_POST['bill_status'];
+                $id = $_POST['id'];
+                update_bill($id, $bill_status);
+                $thongbao = "Cập nhật đơn hàng thành công";
+            }
+            if (isset($_POST['kyw']) && ($_POST['kyw'] != "")) {
+                $kyw = $_POST['kyw'];
+            } else {
+                $kyw = "";
+            }
+            $listbill = loadall_bill($kyw, 0);
+            include "bill/index.php";
+            break;
         case 'xoatk':
             if (isset($_GET['id']) && ($_GET['id'] > 0)) {
                 delete_user($_GET['id']);

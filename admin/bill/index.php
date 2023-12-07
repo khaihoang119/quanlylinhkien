@@ -45,13 +45,13 @@
                                     <th>GIÁ TRỊ ĐƠN HÀNG</th>
                                     <th>NGÀY ĐẶT HÀNG</th>
                                     <th>Trạng Thái</th>
-                                    <th></th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <?php
                                 foreach ($listbill as $bill) {
                                     extract($bill);
+                                    $suabill = "index.php?act=suabill&id=" . $billID;
                                     $xoabill = "index.php?act=xoabill&id=" . $billID;
                                     $kh = $bill["bill_name"] . '<br> ' . $bill["bill_email"] . '<br> ' . $bill["bill_address"] . '<br> ' . $bill["bill_tell"];
                                     $ttdh = get_ttdh($bill["bill_status"]);
@@ -63,6 +63,7 @@
                                         <td><?= $pricetoPay ?></td>
                                         <td><?= $orderDate ?></td>
                                         <td><?= $ttdh ?></td>
+                                        <td><a class="btn btn-outline-info" href="<?= $suabill ?>">Sửa</a></td>
                                         <td><a class="btn btn-outline-danger" href="<?= $xoabill ?>"
                                                onclick="return confirm('Bạn có chắc chắn muốn xóa?')">Xóa</a></td>
 

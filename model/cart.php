@@ -13,7 +13,7 @@ function tongdonhang()
 
 function loadone_bill($id)
 {
-    $sql = "select * from bill where id=" . $id;
+    $sql = "select * from bills where billID=" . $id;
     $bill = pdo_query_one($sql);
     return $bill;
 }
@@ -74,5 +74,11 @@ function get_ttdh($n)
             break;
     }
     return $tt;
+}
+
+function update_bill($id, $bill_status)
+{
+    $sql = "UPDATE bills SET bill_status='" . $bill_status . "' WHERE billID =" . $id;
+    pdo_execute($sql);
 }
 ?>
