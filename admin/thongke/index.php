@@ -34,8 +34,26 @@
 
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Danh sách loại sản phẩm</h5>
+                        <h5 class="card-title">Danh sách thống kê admin</h5>
                         <div class="table-responsive">
+                            <table class="table table-striped table-bordered">
+                                <tr>
+                                    <th>Sản Phẩm</th>
+                                    <th>Loại Sản Phẩm</th>
+                                    <th>Bình Luận</th>
+                                    <th>Tài Khoản</th>
+                                    <th>Đơn Hàng</th>
+                                </tr>
+
+                                <tr>
+                                    <td><?php echo thong_ke_hang_hoa() ?></td>
+                                    <td><?php echo thong_ke_loai() ?></td>
+                                    <td><?php echo thong_ke_binh_luan() ?></td>
+                                    <td><?php echo thong_ke_khach_hang() ?></td>
+                                    <td><?php echo thong_ke_don_hang() ?></td>
+                                </tr>
+                            </table>
+                            <h5 class="card-title">Thống kê sản phẩm</h5>
                         <table class="table table-striped table-bordered">
                             <tr>
                                 <th>MÃ DANH MỤC</th>

@@ -252,7 +252,9 @@ if (isset($_GET['act'])) {
     }
 
 } else {
-    include "thongke/bieudo.php";
+    $listthongke = loadall_thongke();
+    include "thongke/index.php";
+
 }    
 ?>
 <? 
