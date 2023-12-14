@@ -61,7 +61,8 @@
                                         <td><?= $productID ?></td>
                                         <td><?= $content ?></td>
                                         <td><?= $commentDate ?></td>
-                                        <td><a class="btn btn-outline-danger" href="<?= $xoabl ?>">Xóa</a></td>
+                                        <td><a class="btn btn-outline-danger" href="<?= $xoabl ?>"
+                                               onclick="return confirm('Bạn có chắc chắn muốn xóa?')">Xóa</a></td>
 
                                     </tr>
                                 <?php } ?>

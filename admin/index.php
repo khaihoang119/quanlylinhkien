@@ -6,6 +6,7 @@ include "../model/taikhoan.php";
 include "../model/sanpham.php";
 include "../model/binhluan.php";
 include "../model/thongke.php";
+include "../model/cart.php";
 include "header.php";
 
 if (isset($_GET['act'])) {
@@ -134,6 +135,13 @@ if (isset($_GET['act'])) {
             $listbinhluan = loadall_binhluan(0);
             include "binhluan/index.php";
             break;
+        case 'xoabl':
+            if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+                delete_binhluan($_GET['id']);
+            }
+            $listbinhluan = loadall_binhluan(0);
+            include "binhluan/index.php";
+            break;
         case 'dskh':
             $listtaikhoan = loadall_taikhoan();
             // $listtaikhoan = loadall_taikhoan("",0);
@@ -156,7 +164,46 @@ if (isset($_GET['act'])) {
             $listtaikhoan = loadall_taikhoan();
             include "taikhoan/add.php";
             break;
-        case 'listbill':
+        case 'bill':
+            if (isset($_POST["kyw"]) && $_POST["kyw"] != "") {
+                $kyw = $_POST['kyw'];
+            } else {
+                $kyw = "";
+            }
+            $listbill = loadall_bill($kyw, 0);
+            include "bill/index.php";
+            break;
+        case 'xoabill':
+            if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+                delete_bill($_GET['id']);
+            }
+            if (isset($_POST["kyw"]) && $_POST["kyw"] != "") {
+                $kyw = $_POST['kyw'];
+            } else {
+                $kyw = "";
+            }
+            $listbill = loadall_bill($kyw, 0);
+            include "bill/index.php";
+            break;
+        case 'suabill':
+            if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+                $bill = loadone_bill($_GET['id']);
+            }
+            include "bill/update.php";
+            break;
+        case 'updatebill':
+            if (isset($_POST['capnhat']) && ($_POST['capnhat'])) {
+                $bill_status = $_POST['bill_status'];
+                $id = $_POST['id'];
+                update_bill($id, $bill_status);
+                $thongbao = "Cập nhật đơn hàng thành công";
+            }
+            if (isset($_POST['kyw']) && ($_POST['kyw'] != "")) {
+                $kyw = $_POST['kyw'];
+            } else {
+                $kyw = "";
+            }
+            $listbill = loadall_bill($kyw, 0);
             include "bill/index.php";
             break;
         case 'xoatk':
@@ -190,9 +237,7 @@ if (isset($_GET['act'])) {
             $listtaikhoan = loadall_taikhoan();
             include "taikhoan/index.php";
             break;
-        case 'cart':
-            include "cart/index.php";
-            break;
+
         case 'thongke':
             $listthongke = loadall_thongke();
             include "thongke/index.php";
@@ -201,10 +246,16 @@ if (isset($_GET['act'])) {
             $listthongke = loadall_thongke();
             include "thongke/bieudo.php";
             break;
+        default:
+            include "home.php";
+            break;
     }
+
 } else {
-    include "home.php";
-}
+    $listthongke = loadall_thongke();
+    include "thongke/index.php";
+
+}    
 ?>
 <? 
 include "footer.php"
